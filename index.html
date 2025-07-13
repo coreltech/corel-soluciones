@@ -56,7 +56,6 @@
         .logo-img {
             height: 50px;
             filter: brightness(0) invert(1);
-            transition: var(--transition);
         }
         
         .partner-badge {
@@ -100,11 +99,6 @@
             max-width: 500px;
             margin: 0 auto;
             border: 1px solid var(--light-gray);
-            transition: var(--transition);
-        }
-        
-        .form-container:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .form-title {
@@ -115,7 +109,7 @@
             font-size: 1.3rem;
         }
         
-        input, textarea, select, button {
+        input, button, textarea {
             width: 100%;
             padding: 0.8rem 1rem;
             margin-bottom: 1rem;
@@ -125,7 +119,7 @@
             transition: var(--transition);
         }
         
-        input:focus, textarea:focus, select:focus {
+        input:focus, textarea:focus {
             outline: none;
             border-color: var(--secondary);
             box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
@@ -186,7 +180,189 @@
             left: 25%;
         }
         
-        /* Resto de tus estilos... */
+        /* Beneficios */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .benefit-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            text-align: center;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        
+        .benefit-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Testimonial */
+        .testimonial {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: """;
+            font-family: Georgia, serif;
+            font-size: 60px;
+            color: rgba(255,255,255,0.2);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 500;
+            margin-top: 1.5rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        /* Oferta */
+        .offer {
+            background: linear-gradient(135deg, var(--secondary) 0%, #FF8E8E 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+        
+        .offer-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .offer-item i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Pasos */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .step-number {
+            background-color: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Guía */
+        .guide-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .guide-features {
+            text-align: left;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        
+        .guide-features li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .guide-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* CTA */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
         
         /* WhatsApp flotante */
         .whatsapp-float {
@@ -214,6 +390,7 @@
             font-size: 1.8rem;
         }
         
+        /* Responsive */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -227,7 +404,7 @@
                 padding: 3rem 0;
             }
             
-            .form-container {
+            .form-container, .testimonial, .offer, .guide-container {
                 padding: 2rem;
             }
         }
@@ -238,7 +415,7 @@
     <header>
         <div class="container">
             <div class="logo-container">
-                <img src="logo-coreltech.png" alt="CorelTech" class="logo-img">
+                <img src= "assets/logo-coreltech.png" alt="CorelTech" class="logo-img">
                 <div class="partner-badge">MICROSOFT PARTNER</div>
             </div>
         </div>
@@ -257,41 +434,84 @@
                     <p class="hidden">
                         <label>No llenar este campo: <input name="bot-field"></label>
                     </p>
-                    
                     <input type="text" name="nombre" placeholder="Nombre completo" required>
                     <input type="email" name="email" placeholder="Email corporativo" required>
-                    <input type="tel" name="telefono" placeholder="Teléfono" required>
-                    
+                    <input type="tel" name="telefono" placeholder="Teléfono" pattern="[0-9]{10,15}" title="Número de 10 a 15 dígitos" required>
                     <button type="submit">📅 ¡Quiero IT Sin Fallos!</button>
-                    
                     <p class="form-note">Sin compromisos. Datos 100% protegidos.</p>
                 </form>
             </div>
         </div>
     </section>
     
-    <!-- Sección de Guía con Formulario 2 (FormSubmit + Getform) -->
+    <!-- Beneficios -->
     <section class="section">
         <div class="container">
-            <div class="form-container">
+            <h2>Nuestro Valor Diferencial</h2>
+            <div class="benefits">
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Seguridad Integral</h3>
+                    <p>Protección multicapa contra amenazas digitales con monitoreo constante.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Respuesta Inmediata</h3>
+                    <p>Soporte técnico especializado disponible 24/7/365.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Expertos Certificados</h3>
+                    <p>Equipo con certificaciones de los principales fabricantes.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Transparencia Total</h3>
+                    <p>Reportes mensuales con métricas de rendimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonio -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="testimonial">
+                <p>"Gracias a CorelTech, nuestra clínica redujo un 40% los fallos de red y evitó pérdidas de datos críticos durante emergencias médicas. Su equipo respondió en menos de 1 hora cuando nuestro servidor falló a medianoche."</p>
+                <p class="testimonial-author">— Dr. Luis R., Clínica San José</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Guía Gratis -->
+    <section class="section">
+        <div class="container">
+            <div class="guide-container">
                 <h2><i class="fas fa-lock"></i> Guía GRATIS para PYMES</h2>
                 <h3>"5 Errores de Seguridad IT que Toda Empresa Debe Evitar"</h3>
                 
                 <div style="max-width: 200px; margin: 2rem auto;">
-                    <img src="https://i.imgur.com/JQ9w7Kn.png" alt="Portada guía seguridad IT" style="width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <img src="assets/guia-seguridad.png" loading="lazy" width="200" height="280" alt="Guía de Seguridad IT" style="width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 </div>
                 
-                <form id="guia-form" method="POST">
-                    <!-- Configuración FormSubmit -->
+                <div class="guide-features">
+                    <ul style="list-style: none;">
+                        <li><strong>Contraseñas:</strong> Cómo evitar robos de cuentas</li>
+                        <li><strong>Backups:</strong> Método 3-2-1 para no perder datos</li>
+                        <li><strong>WiFi:</strong> Configuración segura para locales</li>
+                        <li><strong>Bonus:</strong> Checklist "Auditoría Express"</li>
+                    </ul>
+                </div>
+                
+                <form action="https://formsubmit.co/coreltec.soluciones@gmail.com" method="POST" id="guia-form">
                     <input type="hidden" name="_subject" value="[CORELTECH] Descarga de guía">
-                    <input type="hidden" name="_next" value="https://tudominio.com/gracias-descarga">
+                    <input type="hidden" name="_next" value="https://tudominio.com/gracias-descarga?source=formsubmit">
                     <input type="hidden" name="_template" value="box">
-                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honeypot" style="display:none">
                     
-                    <!-- Campos visibles -->
                     <input type="text" name="nombre" placeholder="Nombre completo" required>
                     <input type="email" name="email" placeholder="Email corporativo" required>
-                    <input type="tel" name="telefono" placeholder="WhatsApp (opcional)">
+                    <input type="tel" name="telefono" placeholder="WhatsApp (opcional)" pattern="[0-9]{10,15}" title="Número de 10 a 15 dígitos">
                     
                     <button type="submit">⬇️ Descargar Guía Ahora</button>
                     
@@ -303,7 +523,86 @@
         </div>
     </section>
     
-    <!-- Resto de tus secciones... -->
+    <!-- Oferta -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2>Oferta Exclusiva</h2>
+            <div class="offer">
+                <div class="offer-item">
+                    <i class="fas fa-gift"></i>
+                    <p><strong>1 Mes Gratis</strong> de monitoreo preventivo para nuevos clientes</p>
+                </div>
+                <div class="offer-item">
+                    <i class="fas fa-book"></i>
+                    <p><strong>Guía GRATIS</strong> de seguridad IT para empresas (valorado en $50)</p>
+                </div>
+                <div class="offer-item">
+                    <i class="fas fa-search"></i>
+                    <p><strong>Auditoría de Seguridad</strong> sin costo (incluye reporte detallado)</p>
+                </div>
+                
+                <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                    <a href="tel:+584145828186" style="color: white; text-decoration: none;">
+                        <i class="fas fa-phone"></i> +58 414-582-8186
+                    </a>
+                    <a href="mailto:coreltech.soluciones@gmail.com" style="color: white; text-decoration: none;">
+                        <i class="fas fa-envelope"></i> coreltech.soluciones@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cómo Funciona -->
+    <section class="section">
+        <div class="container">
+            <h2>Cómo Funciona</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Diagnóstico Gratis</h3>
+                    <p>Evaluamos tus sistemas sin costo en 48 horas con nuestro software especializado.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Plan Personalizado</h3>
+                    <p>Te enviamos una propuesta clara con soluciones adaptadas a tu presupuesto.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Protección Activa</h3>
+                    <p>Implementamos y monitoreamos tu infraestructura IT las 24 horas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="section section-alt" style="padding-top: 0; padding-bottom: 5rem;">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">¿Sigues Arriesgando Tu Negocio con Mantenimiento Reactivo?</h2>
+            <button class="cta-button" onclick="location.href='#diagnostico-gratis'">
+                <i class="fas fa-calendar-check"></i> Agendar Diagnóstico Gratis
+            </button>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="logo-coreltech.png" alt="CorelTech" class="logo-img" style="height: 40px; margin-bottom: 1rem;">
+            
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-home"></i> Inicio</a>
+                <a href="#"><i class="fas fa-user-tie"></i> Nosotros</a>
+                <a href="#"><i class="fas fa-server"></i> Servicios</a>
+                <a href="#"><i class="fas fa-envelope"></i> Contacto</a>
+            </div>
+            
+            <p>© 2024 CorelTech. Todos los derechos reservados.</p>
+            <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.5rem;">Socios certificados Microsoft | Soporte técnico profesional</p>
+        </div>
+    </footer>
     
     <!-- WhatsApp Float -->
     <a href="https://wa.me/584145828186?text=Hola%20CorelTech,%20vi%20su%20página%20y%20quiero%20agendar%20el%20diagnóstico%20gratis." class="whatsapp-float" target="_blank">
@@ -313,47 +612,44 @@
     <!-- Script para manejo inteligente de formularios -->
     <script>
         // Configuración de endpoints
-        const FORM_SUBMIT_EMAIL = 'coreltec.soluciones@gmail.com';
         const GETFORM_ENDPOINT = 'https://getform.io/f/ajjogjva';
+        const guiaForm = document.getElementById('guia-form');
         
-        document.getElementById('guia-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Función para enviar a ambos servicios
+        async function enviarFormulario() {
+            const formData = new FormData(guiaForm);
             
-            // Determinar a qué servicio enviar primero (alternar cada día)
-            const day = new Date().getDate();
-            const useFormSubmitFirst = day % 2 === 0; // Alterna entre true/false cada día
-            
-            const submitPromises = [];
-            
-            // Siempre enviar a Getform para el panel de control
-            submitPromises.push(
-                fetch(GETFORM_ENDPOINT, {
+            try {
+                // Enviar a FormSubmit
+                const formSubmitPromise = fetch(guiaForm.action, {
                     method: 'POST',
-                    body: new FormData(this)
-                }).catch(error => console.error('Error al enviar a Getform:', error))
-            );
-            
-            // Enviar a FormSubmit solo si es el día par
-            if (useFormSubmitFirst) {
-                submitPromises.push(
-                    fetch(`https://formsubmit.co/ajax/${encodeURIComponent(FORM_SUBMIT_EMAIL)}`, {
-                        method: 'POST',
-                        body: new FormData(this)
-                    }).catch(error => console.error('Error al enviar a FormSubmit:', error))
-                );
-            }
-            
-            // Manejar todos los envíos
-            Promise.all(submitPromises)
-                .then(() => {
-                    // Redirigir a la página de gracias
-                    window.location.href = this.querySelector('[name="_next"]').value;
-                })
-                .catch(error => {
-                    console.error('Error en el envío:', error);
-                    alert('¡Gracias por tu interés! Si no eres redirigido automáticamente, por favor revisa tu correo electrónico.');
-                    window.location.href = this.querySelector('[name="_next"]').value;
+                    body: formData
                 });
+                
+                // Enviar a Getform
+                const getformPromise = fetch(GETFORM_ENDPOINT, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                // Esperar ambos envíos
+                await Promise.all([formSubmitPromise, getformPromise]);
+                
+                // Redirigir después de éxito
+                window.location.href = guiaForm.querySelector('[name="_next"]').value;
+                
+            } catch (error) {
+                console.error('Error al enviar el formulario:', error);
+                // Mostrar mensaje amigable y redirigir igual
+                alert('¡Gracias por tu interés! Si no eres redirigido automáticamente, revisa tu correo electrónico.');
+                window.location.href = guiaForm.querySelector('[name="_next"]').value;
+            }
+        }
+        
+        // Manejar envío del formulario
+        guiaForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            enviarFormulario();
         });
     </script>
 </body>
