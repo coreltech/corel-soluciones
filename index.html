@@ -5,19 +5,449 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Coreltech IT Solutions - Soporte técnico profesional para empresas.">
   <title>Soporte Técnico Empresarial | Coreltech</title>
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-  <!-- Estilos principales -->
-  <link rel="stylesheet" href="assets/css/styles.css">
-
   <!-- Favicon -->
   <link rel="icon" href="assets/img/favicon.webp" type="image/webp">
+  <style>
+    /* =========================
+       = Reset básico
+       ========================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* =========================
+       = Variables de estilo
+       ========================= */
+    :root {
+      --primary: #0066CC;
+      --secondary: #00C9B1;
+      --text: #2D3748;
+      --light: #F8F9FC;
+      --white: #FFFFFF;
+      --border: #E2E8F0;
+      --font-main: 'Poppins', sans-serif;
+      --transition: all 0.3s ease;
+    }
+
+    /* =========================
+       = Estilos generales
+       ========================= */
+    body {
+      font-family: var(--font-main);
+      color: var(--text);
+      background-color: var(--white);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    a:hover {
+      color: var(--secondary);
+    }
+
+    /* =========================
+       = Header mínimo
+       ========================= */
+    .landing-header {
+      padding: 1rem 0;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo img {
+      vertical-align: middle;
+    }
+
+/* =========================
+   = Hero Principal con imagen de fondo (CORREGIDO)
+   ========================= */
+.hero-landing {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  background: url('assets/img/hero-tech.webp') center/cover no-repeat;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-landing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay negro al 50% */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 201, 177, 0.3);
+}
+
+    /* =========================
+       = ¿Qué resolvemos?
+       ========================= */
+    .solutions-section {
+      padding: 5rem 0;
+      background-color: var(--light);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      justify-items: center;
+    }
+
+    .solution-item {
+      text-align: center;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .solution-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .solution-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 0 auto 1rem;
+      display: block;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      border: 2px solid rgba(0, 102, 204, 0.1);
+    }
+
+    .solution-item h3 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .solution-item p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       = Caso de Éxito - Tarjeta elevada
+       ========================= */
+    .case-study {
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .case-study .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .case-card {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      border-left: 6px solid var(--primary);
+      max-width: 800px;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
+
+    .case-card:hover {
+      transform: translateY(-8px);
+    }
+
+    blockquote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: #1a202c;
+      margin: 0;
+    }
+
+    cite {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.2rem;
+      display: block;
+      margin-top: 1.5rem;
+    }
+
+    /* =========================
+       = Formulario de contacto - Tarjeta elevada
+       ========================= */
+    .contact-section {
+      padding: 6rem 0;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        0 15px 20px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 102, 204, 0.15);
+      border: 1px solid rgba(0, 102, 204, 0.2);
+      transition: all 0.3s ease;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .contact-form:hover {
+      transform: translateY(-6px);
+      box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.2),
+        0 20px 30px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 102, 204, 0.25);
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #003366;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-subtitle {
+      text-align: center;
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background-color: #f9fafb;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background-color: white;
+      box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 201, 177, 0.2);
+    }
+
+    /* =========================
+       = Acceso al blog
+       ========================= */
+    .blog-access {
+      padding: 5rem 0;
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+    }
+
+    .blog-access h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-access p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background-color: var(--white);
+      color: var(--primary);
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background-color: #f0f0f0;
+      color: var(--secondary);
+    }
+
+    /* =========================
+       = Footer mínimo
+       ========================= */
+    .footer-minimal {
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      background-color: var(--light);
+      border-top: 1px solid var(--border);
+    }
+
+    /* =========================
+       = WhatsApp Flotante (SIEMPRE VISIBLE)
+       ========================= */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: block;
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-fab:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-fab img {
+      width: 50px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* =========================
+       = Responsive
+       ========================= */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      .solution-img {
+        width: 100px;
+        height: 100px;
+      }
+      blockquote {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- 🧭 Header Mínimo (solo logo) -->
+  <!-- 🧭 Header -->
   <header class="landing-header">
     <div class="container">
       <a href="/" class="logo">
@@ -26,32 +456,32 @@
     </div>
   </header>
 
-  <!-- 🎯 Hero Principal con imagen de fondo -->
+  <!-- 🎯 Hero con imagen de fondo -->
   <section class="hero-landing">
-    <div class="container">
-      <h1 class="hero-title">Soporte Técnico Profesional para Empresas</h1>
-      <p class="hero-subtitle">Resolvemos problemas de hardware, software y redes con enfoque técnico, rapidez y garantía. Sin tecnicismos innecesarios.</p>
-      <a href="#contacto" class="btn-primary">Solicitar cotización</a>
+    <div class="hero-content">
+      <h1 class="hero-title">Cuando falla tu tecnología, <br>nosotros ya estamos trabajando.</h1>
+      <p class="hero-subtitle">Soporte técnico integral en hardware, software y redes con respuesta en menos de 60 minutos. Garantizado.</p>
+      <a href="#contacto" class="btn-primary">Solicitar Respuesta Rápida</a>
     </div>
   </section>
 
-  <!-- 🛠 ¿Qué resolvemos? (con imágenes reales pequeñas) -->
+  <!-- 🛠 Soluciones -->
   <section class="solutions-section">
     <div class="container">
       <h2 class="section-title">No vendemos partes. Vendemos tranquilidad.</h2>
       <div class="solutions-grid">
         <div class="solution-item">
-          <img src="assets/img/real-hardware.webp" alt="Técnico reparando laptop" class="solution-img">
+          <img src="assets/img/real-hardware.webp" alt="Reparación de hardware" class="solution-img">
           <h3>Hardware</h3>
           <p>Limpieza, reparación y mantenimiento de equipos. Recuperamos lo que otros dan por perdido.</p>
         </div>
         <div class="solution-item">
-          <img src="assets/img/real-software.webp" alt="Interfaz de software" class="solution-img">
+          <img src="assets/img/real-software.webp" alt="Recuperación de software" class="solution-img">
           <h3>Software</h3>
           <p>Recuperación de datos, eliminación de malware, optimización de sistemas.</p>
         </div>
         <div class="solution-item">
-          <img src="assets/img/real-network.webp" alt="Red empresarial" class="solution-img">
+          <img src="assets/img/real-network.webp" alt="Instalación de red" class="solution-img">
           <h3>Redes</h3>
           <p>Diseño, instalación y estabilidad de redes WiFi y cableadas. Sin puntos muertos.</p>
         </div>
@@ -62,29 +492,27 @@
   <!-- 💼 Caso de Éxito -->
   <section class="case-study">
     <div class="container">
-      <h2>Caso de Éxito: Clínica San José</h2>
-      <p>Reducimos un 40% los fallos de red en 72 horas.</p>
-      <p><strong>Acciones clave:</strong> Optimización de red WiFi, reemplazo de switch obsoleto, copias de seguridad automatizadas.</p>
-      <blockquote>
-        "Gracias a CorelTech, nuestra clínica redujo un 40% los fallos de red y evitó pérdidas de datos críticos durante emergencias médicas. Su equipo respondió en menos de 1 hora cuando nuestro servidor falló a medianoche."
-      </blockquote>
-      <cite>— Dr. Luis R., Clínica San José</cite>
+      <div class="case-card">
+        <blockquote>
+          "Gracias a CorelTech, nuestra clínica redujo un 40% los fallos de red y evitó pérdidas de datos críticos durante emergencias médicas. Su equipo respondió en menos de 1 hora cuando nuestro servidor falló a medianoche."
+        </blockquote>
+        <cite>— Dr. Luis R., Clínica San José</cite>
+      </div>
     </div>
   </section>
 
   <!-- 📝 Formulario de contacto -->
   <section id="contacto" class="contact-section">
     <div class="container">
-      <h2>¿Necesitas soporte técnico profesional?</h2>
-      <p class="form-subtitle">Escríbenos y te responderemos en menos de 24 horas.</p>
       <form id="contact-form" class="contact-form">
+        <h2>¿Necesitas soporte técnico profesional?</h2>
+        <p class="form-subtitle">Escríbenos y te responderemos en menos de 24 horas.</p>
         <input type="text" name="nombre" placeholder="Nombre completo" required>
         <input type="email" name="email" placeholder="Email corporativo" required>
         <input type="tel" name="telefono" placeholder="Teléfono (ej: +58 414 582 8186)" required>
         <textarea name="mensaje" placeholder="¿Qué problema técnico tienes?" rows="4" required></textarea>
         <button type="submit" class="btn-primary">Enviar solicitud</button>
       </form>
-      <div id="form-message" class="form-message"></div>
     </div>
   </section>
 
@@ -92,59 +520,47 @@
   <section class="blog-access">
     <div class="container">
       <h2>Accede a Nuestro Blog Técnico</h2>
-      <p>Contenido exclusivo para empresas registradas: análisis técnicos, mejores prácticas y casos reales.</p>
-      <p><strong>Para acceder, debes registrarte como cliente o empresa interesada.</strong></p>
+      <p>Contenido exclusivo: análisis, mejores prácticas y casos reales.</p>
       <a href="#contacto" class="btn-secondary">Solicitar acceso al blog</a>
     </div>
   </section>
 
-  <!-- 📌 Footer Mínimo -->
+  <!-- 📌 Footer -->
   <footer class="footer-minimal">
     <div class="container">
       <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- 📞 Botón Flotante de WhatsApp -->
-  <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-fab" aria-label="Contáctanos por WhatsApp">
-    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp" width="50">
+  <!-- 📞 WhatsApp -->
+  <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-fab">
+    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
 
   <!-- ✅ EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-  <!-- ✅ Script ligero -->
   <script>
-    // ✅ Inicializa EmailJS con tu Public Key
     (function() {
-      emailjs.init(T5hTXojZBvmNuw3Ef); // ← Reemplaza con tu Public Key
+      emailjs.init("T5hTXojZBvmNuw3Ef"); // ← Tu Public Key
     })();
-
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-
-      const btn = e.target.querySelector('button');
-      const originalText = btn.textContent;
+      const btn = this.querySelector('button');
+      const original = btn.textContent;
       btn.textContent = 'Enviando...';
       btn.disabled = true;
-
-      const serviceID = coreltech-contacto; // ← Reemplaza si es diferente
-      const templateID = template_v53c7wa; // ← Reemplaza con tu Template ID
-
-      emailjs.sendForm(serviceID, templateID, this)
+      emailjs.sendForm('coreltech-contacto', 'template_v53c7wa', this)
         .then(() => {
-          alert('✅ ¡Mensaje enviado con éxito! Te responderemos en menos de 24 horas.');
-          document.getElementById('contact-form').reset();
-          btn.textContent = originalText;
+          alert('✅ ¡Listo! Te contactaremos en menos de 24 horas.');
+          this.reset();
+          btn.textContent = original;
           btn.disabled = false;
-        }, (error) => {
-          console.error('Error:', error);
-          alert('❌ Hubo un error al enviar el mensaje. Por favor, intenta de nuevo o escríbenos por WhatsApp.');
-          btn.textContent = originalText;
+        }, () => {
+          alert('❌ Error. Escríbenos por WhatsApp.');
+          btn.textContent = original;
           btn.disabled = false;
         });
     });
   </script>
-
 </body>
 </html>
