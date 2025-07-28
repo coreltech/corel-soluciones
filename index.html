@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Coreltech IT Solutions - Soporte técnico profesional para empresas.">
-  <title>Soporte Técnico Empresarial | Coreltech</title>
+  <meta name="description" content="Soporte técnico empresarial con respuesta en menos de 60 minutos. Reparamos hardware, software y redes. ¡Solicita ayuda ahora!">
+  <meta name="keywords" content="soporte técnico empresas, reparación de servidores, falla de red, soporte IT, mantenimiento computadoras empresa, Coreltech, redes empresariales, recuperación de datos">
+  <title>Soporte Técnico Empresarial Rápido | Coreltech - Respuesta en 60 Min</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <!-- Favicon -->
@@ -30,7 +31,6 @@
       --border: #E2E8F0;
       --font-main: 'Poppins', sans-serif;
       --transition: all 0.3s ease;
-      /* Variables adicionales para personalización */
       --font-size-base: 16px;
       --border-radius-base: 8px;
     }
@@ -73,67 +73,81 @@
     .logo img {
       vertical-align: middle;
     }
-/* =========================
-   = Hero Principal con imagen de fondo (CORREGIDO)
-   ========================= */
-.hero-landing {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  overflow: hidden;
-  background: url('assets/img/hero-tech.webp') center/cover no-repeat;
-  border-bottom: 1px solid var(--border);
-}
-.hero-landing::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Overlay negro al 50% */
-  z-index: 1;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 2rem;
-}
-.hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-.hero-subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.btn-primary {
-  display: inline-block;
-  background-color: var(--primary);
-  color: white;
-  padding: 1rem 2.5rem;
-  border-radius: var(--border-radius-base);
-  font-size: 1.2rem;
-  font-weight: 600;
-  transition: var(--transition);
-}
-.btn-primary:hover {
-  background-color: var(--secondary);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 201, 177, 0.3);
-}
+    /* =========================
+       = Hero Principal con imagen de fondo
+       ========================= */
+    .hero-landing {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      background: url('assets/img/hero-tech.webp') center/cover no-repeat;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-landing::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: var(--border-radius-base);
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .btn-primary:hover {
+      background-color: var(--secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 201, 177, 0.3);
+    }
+    .btn-secondary {
+      display: inline-block;
+      background-color: var(--white);
+      color: var(--primary);
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .btn-secondary:hover {
+      background-color: #f0f0f0;
+      color: var(--secondary);
+    }
     /* =========================
        = ¿Qué resolvemos?
        ========================= */
@@ -188,7 +202,7 @@
       line-height: 1.6;
     }
     /* =========================
-       = Caso de Éxito - Tarjeta elevada
+       = Caso de Éxito
        ========================= */
     .case-study {
       padding: 5rem 0;
@@ -227,7 +241,39 @@
       margin-top: 1.5rem;
     }
     /* =========================
-       = Formulario de contacto - Tarjeta elevada
+       = Sección de Confianza
+       ========================= */
+    .trust-section {
+      padding: 3rem 0;
+      text-align: center;
+      background-color: #f8f9fc;
+    }
+    .trust-section h3 {
+      color: #0066CC;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    .trust-stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-weight: 700;
+      color: #2D3748;
+    }
+    .trust-item {
+      text-align: center;
+    }
+    .trust-item span {
+      font-size: 2rem;
+      display: block;
+    }
+    .trust-item small {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    /* =========================
+       = Formulario de contacto
        ========================= */
     .contact-section {
       padding: 6rem 0;
@@ -328,20 +374,6 @@
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
     }
-    .btn-secondary {
-      display: inline-block;
-      background-color: var(--white);
-      color: var(--primary);
-      padding: 0.8rem 1.8rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .btn-secondary:hover {
-      background-color: #f0f0f0;
-      color: var(--secondary);
-    }
     /* =========================
        = Footer mínimo
        ========================= */
@@ -354,7 +386,7 @@
       border-top: 1px solid var(--border);
     }
     /* =========================
-       = WhatsApp Flotante (SIEMPRE VISIBLE)
+       = WhatsApp Flotante
        ========================= */
     .whatsapp-fab {
       position: fixed;
@@ -379,345 +411,6 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    
-    /* =========================
-       = Panel de Personalización (Herramienta de Desarrollo)
-       ========================= */
-    .dev-panel {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 300px;
-      height: 100vh;
-      background: #1a1a1a;
-      color: #fff;
-      z-index: 10000;
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      display: flex;
-      flex-direction: column;
-      font-family: 'Poppins', sans-serif;
-    }
-    .dev-panel.active {
-      transform: translateX(0);
-    }
-    .dev-panel-toggle {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background: #1a1a1a;
-      color: white;
-      border: 2px solid var(--primary);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .dev-panel-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .dev-panel-header {
-      padding: 1.2rem;
-      background: var(--primary);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .dev-panel-header h3 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-    .dev-panel-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0;
-      width: 30px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 4px;
-    }
-    .dev-panel-close:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .dev-panel-body {
-      padding: 1.5rem;
-      overflow-y: auto;
-      flex: 1;
-    }
-    .dev-control-group {
-      margin-bottom: 1.2rem;
-    }
-    .dev-control-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: #ddd;
-    }
-    .dev-control-group input[type="color"] {
-      width: 100%;
-      height: 40px;
-      border: 1px solid #444;
-      border-radius: 6px;
-      cursor: pointer;
-      background: #333;
-    }
-    .dev-control-group input[type="range"] {
-      width: 100%;
-      margin-bottom: 0.3rem;
-    }
-    .dev-control-group input[type="number"] {
-      width: 100%;
-      padding: 0.5rem;
-      background: #333;
-      border: 1px solid #444;
-      color: white;
-      border-radius: 4px;
-    }
-    .dev-control-group span {
-      font-size: 0.85rem;
-      color: #aaa;
-      float: right;
-    }
-    .dev-control-group select {
-      width: 100%;
-      padding: 0.6rem;
-      border: 1px solid #444;
-      border-radius: 6px;
-      background: #333;
-      color: white;
-      font-family: var(--font-main);
-    }
-    .dev-reset-btn {
-      width: 100%;
-      padding: 0.8rem;
-      background: #e74c3c;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      margin-top: 0.5rem;
-    }
-    .dev-reset-btn:hover {
-      background: #c0392b;
-    }
-    /* Temas Predefinidos */
-    .theme-dark {
-      --primary: #1a202c;
-      --secondary: #2d3748;
-      --text: #e2e8f0;
-      --light: #2d3748;
-      --white: #1a202c;
-      --border: #4a5568;
-    }
-    .theme-blue {
-      --primary: #2b6cb0;
-      --secondary: #0bc5ea;
-      --text: #2c5282;
-      --light: #ebf8ff;
-      --white: #ffffff;
-      --border: #bee3f8;
-    }
-    .theme-green {
-      --primary: #38a169;
-      --secondary: #38a169;
-      --text: #276749;
-      --light: #f0fff4;
-      --white: #ffffff;
-      --border: #c6f6d5;
-    }
-
-    /* =========================
-       = Mapa de Elementos (Herramienta de Desarrollo)
-       ========================= */
-    .element-map-tool {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #1a1a1a;
-      color: #fff;
-      padding: 1rem;
-      z-index: 10000;
-      display: none;
-      font-family: 'Poppins', sans-serif;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      border-bottom: 2px solid var(--primary);
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .element-map-tool.active {
-      display: block;
-    }
-    .map-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #444;
-    }
-    .map-header h3 {
-      margin: 0;
-      color: var(--secondary);
-    }
-    .map-close {
-      background: #e74c3c;
-      color: white;
-      border: none;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .map-sections {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .map-section {
-      background: #2d2d2d;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-    .map-section h4 {
-      margin: 0 0 0.8rem 0;
-      color: var(--primary);
-      border-bottom: 1px solid #444;
-      padding-bottom: 0.3rem;
-    }
-    .map-item {
-      padding: 0.5rem;
-      margin: 0.3rem 0;
-      background: #3d3d3d;
-      border-radius: 4px;
-      font-size: 0.85rem;
-    }
-    .map-item:hover {
-      background: #4d4d4d;
-    }
-    .map-item-tag {
-      color: #00C9B1;
-      font-weight: bold;
-    }
-    .map-item-class {
-      color: #3498db;
-    }
-    .map-item-id {
-      color: #e74c3c;
-    }
-    .map-toggle-btn {
-      position: fixed;
-      bottom: 140px;
-      right: 20px;
-      background: #1a1a1a;
-      color: white;
-      border: 2px solid var(--primary);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      font-size: 18px;
-    }
-    .map-stats {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-    .map-stat {
-      background: #2d2d2d;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-    .map-stat-number {
-      color: var(--secondary);
-      font-weight: bold;
-    }
-
-    /* =========================
-       = Autenticación de Desarrollo
-       ========================= */
-    .dev-auth-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 20000;
-      display: none;
-    }
-    .dev-auth-modal.active {
-      display: flex;
-    }
-    .dev-auth-form {
-      background: #1a1a1a;
-      padding: 2rem;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-    }
-    .dev-auth-form h3 {
-      color: var(--secondary);
-      margin-bottom: 1rem;
-    }
-    .dev-auth-form input {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 1rem 0;
-      background: #333;
-      border: 1px solid #555;
-      color: white;
-      border-radius: 6px;
-    }
-    .dev-auth-form button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .dev-auth-error {
-      color: #e74c3c;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      display: none;
-    }
-    .dev-auth-error.active {
-      display: block;
-    }
-
     /* =========================
        = Responsive
        ========================= */
@@ -735,7 +428,32 @@
       blockquote {
         font-size: 1.3rem;
       }
+      .btn-primary {
+        padding: 1.2rem 2.2rem;
+        font-size: 1.3rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+      .whatsapp-fab img {
+        width: 60px;
+      }
     }
+
+    /* =========================
+   = Estilos para enlaces de soluciones
+   ========================= */
+.solution-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.solution-link:hover .solution-item {
+  transform: translateY(-10px);
+}
   </style>
 </head>
 <body>
@@ -747,37 +465,56 @@
       </a>
     </div>
   </header>
-  <!-- 🎯 Hero con imagen de fondo -->
+
+  <!-- 🎯 Hero -->
   <section class="hero-landing">
     <div class="hero-content">
       <h1 class="hero-title">Cuando falla tu tecnología, <br>nosotros ya estamos trabajando.</h1>
       <p class="hero-subtitle">Soporte técnico integral en hardware, software y redes con respuesta en menos de 60 minutos. Garantizado.</p>
       <a href="#contacto" class="btn-primary">Solicitar Respuesta Rápida</a>
+      <a href="https://coreltech-web.vercel.app/" target="_blank" class="btn-secondary" style="margin-top: 1.2rem; display: inline-block;">
+        Conoce Todos Nuestros Servicios
+      </a>
     </div>
   </section>
+
   <!-- 🛠 Soluciones -->
-  <section class="solutions-section">
-    <div class="container">
-      <h2 class="section-title">No vendemos partes. Vendemos tranquilidad.</h2>
-      <div class="solutions-grid">
+<section class="solutions-section">
+  <div class="container">
+    <h2 class="section-title">No vendemos partes. Vendemos tranquilidad.</h2>
+    <div class="solutions-grid">
+      
+      <!-- Hardware -->
+      <a href="https://coreltech-web.vercel.app/#hardware" target="_blank" class="solution-link">
         <div class="solution-item">
           <img src="assets/img/real-hardware.webp" alt="Reparación de hardware" class="solution-img">
           <h3>Hardware</h3>
           <p>Limpieza, reparación y mantenimiento de equipos. Recuperamos lo que otros dan por perdido.</p>
         </div>
+      </a>
+
+      <!-- Software -->
+      <a href="https://coreltech-web.vercel.app/#software" target="_blank" class="solution-link">
         <div class="solution-item">
           <img src="assets/img/real-software.webp" alt="Recuperación de software" class="solution-img">
           <h3>Software</h3>
           <p>Recuperación de datos, eliminación de malware, optimización de sistemas.</p>
         </div>
+      </a>
+
+      <!-- Redes -->
+      <a href="https://coreltech-web.vercel.app/#redes" target="_blank" class="solution-link">
         <div class="solution-item">
           <img src="assets/img/real-network.webp" alt="Instalación de red" class="solution-img">
           <h3>Redes</h3>
           <p>Diseño, instalación y estabilidad de redes WiFi y cableadas. Sin puntos muertos.</p>
         </div>
-      </div>
+      </a>
+
     </div>
-  </section>
+  </div>
+</section>
+
   <!-- 💼 Caso de Éxito -->
   <section class="case-study">
     <div class="container">
@@ -786,9 +523,34 @@
           "Gracias a CorelTech, nuestra clínica redujo un 40% los fallos de red y evitó pérdidas de datos críticos durante emergencias médicas. Su equipo respondió en menos de 1 hora cuando nuestro servidor falló a medianoche."
         </blockquote>
         <cite>— Dr. Luis R., Clínica San José</cite>
+        <div style="margin-top: 1.5rem;">
+          <a href="#contacto" class="btn-primary">Quiero este nivel de soporte para mi empresa</a>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ✅ Sección de Confianza -->
+  <section class="trust-section">
+    <div class="container">
+      <h3>Tranquilidad respaldada por resultados</h3>
+      <div class="trust-stats">
+        <div class="trust-item">
+          <span style="color: #0066CC;">150+</span>
+          <small>Empresas Atendidas</small>
+        </div>
+        <div class="trust-item">
+          <span style="color: #00C9B1;">98%</span>
+          <small>Satisfacción Garantizada</small>
+        </div>
+        <div class="trust-item">
+          <span style="color: #0066CC;">60 min</span>
+          <small>Tiempo Promedio de Respuesta</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 📝 Formulario de contacto -->
   <section id="contacto" class="contact-section">
     <div class="container">
@@ -803,374 +565,106 @@
       </form>
     </div>
   </section>
+
   <!-- 📚 Acceso al blog -->
   <section class="blog-access">
     <div class="container">
-      <h2>Accede a Nuestro Blog Técnico</h2>
-      <p>Contenido exclusivo: análisis, mejores prácticas y casos reales.</p>
-      <a href="#contacto" class="btn-secondary">Solicitar acceso al blog</a>
+      <h2>Artículos Técnicos Gratis</h2>
+      <p>Aprende sobre redes, seguridad y mantenimiento desde expertos.</p>
+      <a href="https://coreltech-blog.vercel.app/" target="_blank" class="btn-secondary">
+        Ver artículos técnicos gratis
+      </a>
     </div>
   </section>
+
   <!-- 📌 Footer -->
   <footer class="footer-minimal">
     <div class="container">
       <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
     </div>
   </footer>
+
   <!-- 📞 WhatsApp -->
   <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-fab">
     <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
- 
- <!-- ✅ Firebase App (núcleo) y Firestore -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    <script>
-  // =========================
-  // = Configuración de Firebase =
-  // =========================
-  // Pega aquí el objeto firebaseConfig que obtuviste en el Paso 1.4 del mensaje anterior
-  // Ejemplo (reemplaza con tus valores reales):
-  const firebaseConfig = {
-    apiKey: "AIzaSyDD7Wp_TpfHKHfdDqaCLqWbjX5E3WZllGA",
-    authDomain: "coreltech-it.firebaseapp.com",
-    projectId: "coreltech-it",
-    storageBucket: "coreltech-it.firebasestorage.app",
-    messagingSenderId: "776481773634",
-    appId: "1:776481773634:web:8608f6a15710cdb10775db"
-  };
 
-  // Inicializar Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
-  // =========================
-  // = Manejo del Formulario de Contacto =
-  // =========================
-  document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = this;
-    const btn = form.querySelector('button');
-    const originalText = btn.textContent;
-
-    // Deshabilitar botón y mostrar estado de carga
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-
-    // Obtener valores del formulario
-    const formData = {
-      nombre: form.nombre.value.trim(),
-      email: form.email.value.trim(),
-      telefono: form.telefono.value.trim(),
-      mensaje: form.mensaje.value.trim(),
-      fecha: firebase.firestore.FieldValue.serverTimestamp() // Fecha del servidor
+  <!-- ✅ Firebase + Telegram Notificaciones -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script>
+    // Configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDD7Wp_TpfHKHfdDqaCLqWbjX5E3WZllGA",
+      authDomain: "coreltech-it.firebaseapp.com",
+      projectId: "coreltech-it",
+      storageBucket: "coreltech-it.firebasestorage.app",
+      messagingSenderId: "776481773634",
+      appId: "1:776481773634:web:8608f6a15710cdb10775db"
     };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-    try {
-      // Guardar datos en Firestore
-      await db.collection('contactos').add(formData);
+    // Manejo del formulario
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn = form.querySelector('button');
+      const originalText = btn.textContent;
 
-      // Éxito
-      alert('✅ ¡Listo! Te contactaremos en menos de 24 horas.');
-      form.reset(); // Limpiar formulario
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
 
-    } catch (error) {
-      console.error("Error al enviar el formulario:", error);
-      // Error
-      alert('❌ Error al procesar la solicitud. Por favor, inténtalo de nuevo o escríbenos por WhatsApp.');
-    } finally {
-      // Rehabilitar botón
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }
-  });
-
-  // =========================
-  // = Inicialización de Herramientas de Desarrollo (mantener tu código existente) =
-  // =========================
-  // Copia y pega aquí TODO el código que tenías después del manejo de EmailJS
-  // Es decir, todo el código desde:
-  // "const DEV_PASSWORD = 'coreltech2025';"
-  // hasta:
-  // "});"
-  // incluyendo todas las funciones: isDevEnvironment, initializeDevTools, initializePanelPersonalizacion, initializeMapaElementos, etc.
-  // Y también el evento DOMContentLoaded final.
-
-  // --- PEGA AQUÍ TODO ESE CÓDIGO EXISTENTE ---
-  const DEV_PASSWORD = 'coreltech2025'; // ← Cambia esta contraseña
-  function isDevEnvironment() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const isDevParam = urlParams.get('dev') === 'true';
-    const isLocalhost = window.location.hostname === 'localhost' ||
-                       window.location.hostname === '127.0.0.1' ||
-                       window.location.hostname === '0.0.0.0';
-    return isDevParam || isLocalhost;
-  }
-  function initializeDevTools() {
-    // Verificar si ya está autenticado
-    if (!sessionStorage.getItem('devAccess') && !isDevEnvironment()) {
-      document.getElementById('devAuthModal').classList.add('active');
-      return false;
-    }
-    // Mostrar botones de herramientas
-    document.getElementById('devPanelToggle').style.display = 'flex';
-    document.getElementById('mapToggleBtn').style.display = 'flex';
-    // Inicializar herramientas
-    initializePanelPersonalizacion();
-    initializeMapaElementos();
-    return true;
-  }
-  // Autenticación
-  document.getElementById('devLoginBtn').addEventListener('click', () => {
-    const password = document.getElementById('devPassword').value;
-    if (password === DEV_PASSWORD) {
-      sessionStorage.setItem('devAccess', 'true');
-      document.getElementById('devAuthModal').classList.remove('active');
-      initializeDevTools();
-    } else {
-      const error = document.getElementById('devAuthError');
-      error.classList.add('active');
-      setTimeout(() => {
-        error.classList.remove('active');
-      }, 3000);
-    }
-  });
-  document.getElementById('devPassword').addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      document.getElementById('devLoginBtn').click();
-    }
-  });
-  // =========================
-  // Panel de Personalización
-  // =========================
-  function initializePanelPersonalizacion() {
-    const devPanel = document.getElementById('devPanel');
-    const devPanelToggle = document.getElementById('devPanelToggle');
-    const devPanelClose = document.getElementById('devPanelClose');
-    const root = document.documentElement;
-    // Atajo de teclado
-    document.addEventListener('keydown', function(e) {
-      if (e.ctrlKey && e.shiftKey && e.key === 'P') {
-        e.preventDefault();
-        devPanel.classList.toggle('active');
-      }
-    });
-    // Toggle con botón
-    devPanelToggle.addEventListener('click', () => {
-      devPanel.classList.toggle('active');
-    });
-    devPanelClose.addEventListener('click', () => {
-      devPanel.classList.remove('active');
-    });
-    // Actualizar variables CSS
-    document.getElementById('devPrimaryColor').addEventListener('input', (e) => {
-      root.style.setProperty('--primary', e.target.value);
-    });
-    document.getElementById('devSecondaryColor').addEventListener('input', (e) => {
-      root.style.setProperty('--secondary', e.target.value);
-    });
-    document.getElementById('devTextColor').addEventListener('input', (e) => {
-      root.style.setProperty('--text', e.target.value);
-    });
-    document.getElementById('devFontSize').addEventListener('input', (e) => {
-      const size = e.target.value + 'px';
-      root.style.setProperty('--font-size-base', size);
-      document.body.style.fontSize = size;
-    });
-    document.getElementById('devBorderRadius').addEventListener('input', (e) => {
-      const radius = e.target.value + 'px';
-      root.style.setProperty('--border-radius-base', radius);
-      // Aplicar a elementos clave
-      const elements = document.querySelectorAll('.btn-primary, .solution-item, .case-card, .contact-form, .solution-img, input, textarea, button');
-      elements.forEach(el => {
-        if(el.classList.contains('solution-img')) {
-          el.style.borderRadius = Math.max(0, e.target.value - 4) + 'px';
-        } else {
-          el.style.borderRadius = radius;
-        }
-      });
-    });
-    // Temas predefinidos
-    document.getElementById('devThemePreset').addEventListener('change', (e) => {
-      const theme = e.target.value;
-      document.body.classList.remove('theme-dark', 'theme-blue', 'theme-green');
-      if (theme !== 'default') {
-        document.body.classList.add(`theme-${theme}`);
-      }
-    });
-    // Restablecer
-    document.getElementById('devResetBtn').addEventListener('click', () => {
-      root.style.setProperty('--primary', '#0066CC');
-      root.style.setProperty('--secondary', '#00C9B1');
-      root.style.setProperty('--text', '#2D3748');
-      root.style.setProperty('--light', '#F8F9FC');
-      root.style.setProperty('--white', '#FFFFFF');
-      root.style.setProperty('--border', '#E2E8F0');
-      root.style.setProperty('--font-size-base', '16px');
-      root.style.setProperty('--border-radius-base', '8px');
-      document.getElementById('devPrimaryColor').value = '#0066CC';
-      document.getElementById('devSecondaryColor').value = '#00C9B1';
-      document.getElementById('devTextColor').value = '#2D3748';
-      document.getElementById('devFontSize').value = '16';
-      document.getElementById('devBorderRadius').value = '8';
-      document.getElementById('devThemePreset').value = 'default';
-      document.body.classList.remove('theme-dark', 'theme-blue', 'theme-green');
-      document.body.style.fontSize = '';
-      const elements = document.querySelectorAll('.btn-primary, .solution-item, .case-card, .contact-form, .solution-img, input, textarea, button');
-      elements.forEach(el => {
-        el.style.borderRadius = '';
-      });
-    });
-  }
-  // =========================
-  // Mapa de Elementos
-  // =========================
-  function initializeMapaElementos() {
-    const elementMapTool = document.getElementById('elementMapTool');
-    const mapToggleBtn = document.getElementById('mapToggleBtn');
-    const mapCloseBtn = document.getElementById('mapCloseBtn');
-    // Atajo de teclado
-    document.addEventListener('keydown', function(e) {
-      if (e.ctrlKey && e.shiftKey && e.key === 'M') {
-        e.preventDefault();
-        elementMapTool.classList.toggle('active');
-        if(elementMapTool.classList.contains('active')) {
-          generateElementMap();
-        }
-      }
-    });
-    // Toggle con botón
-    mapToggleBtn.addEventListener('click', () => {
-      elementMapTool.classList.toggle('active');
-      if(elementMapTool.classList.contains('active')) {
-        generateElementMap();
-      }
-    });
-    mapCloseBtn.addEventListener('click', () => {
-      elementMapTool.classList.remove('active');
-    });
-    // Generar mapa de elementos
-    function generateElementMap() {
-      document.getElementById('mapHeaders').innerHTML = '';
-      document.getElementById('mapImages').innerHTML = '';
-      document.getElementById('mapLinks').innerHTML = '';
-      document.getElementById('mapSections').innerHTML = '';
-      document.getElementById('mapForms').innerHTML = '';
-      document.getElementById('mapButtons').innerHTML = '';
-      document.getElementById('mapStats').innerHTML = '';
-      const counts = {
-        h1: 0, h2: 0, h3: 0, h4: 0, h5: 0, h6: 0,
-        img: 0, a: 0, section: 0, form: 0, input: 0,
-        button: 0, textarea: 0
+      const formData = {
+        nombre: form.nombre.value.trim(),
+        email: form.email.value.trim(),
+        telefono: form.telefono.value.trim(),
+        mensaje: form.mensaje.value.trim(),
+        fecha: new Date().toLocaleString('es-VE')
       };
-      // Encabezados
-      const headersContainer = document.getElementById('mapHeaders');
-      document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(el => {
-        counts[el.tagName.toLowerCase()]++;
-        const item = document.createElement('div');
-        item.className = 'map-item';
-        item.innerHTML = `
-          <span class="map-item-tag"><${el.tagName}></span>
-          ${el.className ? `<span class="map-item-class">.${el.className}</span>` : ''}
-          ${el.id ? `<span class="map-item-id">#${el.id}</span>` : ''}
-          <div style="margin-top: 0.2rem; color: #aaa; font-size: 0.8rem;">${el.textContent.substring(0, 50)}${el.textContent.length > 50 ? '...' : ''}</div>
-        `;
-        headersContainer.appendChild(item);
-      });
-      // Imágenes
-      const imagesContainer = document.getElementById('mapImages');
-      document.querySelectorAll('img').forEach(img => {
-        counts.img++;
-        const item = document.createElement('div');
-        item.className = 'map-item';
-        item.innerHTML = `
-          <span class="map-item-tag"><img></span>
-          ${img.className ? `<span class="map-item-class">.${img.className}</span>` : ''}
-          ${img.id ? `<span class="map-item-id">#${img.id}</span>` : ''}
-          <div style="margin-top: 0.2rem; color: #aaa; font-size: 0.8rem;">${img.alt || img.src.split('/').pop()}</div>
-        `;
-        imagesContainer.appendChild(item);
-      });
-      // Enlaces
-      const linksContainer = document.getElementById('mapLinks');
-      document.querySelectorAll('a').forEach(link => {
-        counts.a++;
-        const item = document.createElement('div');
-        item.className = 'map-item';
-        item.innerHTML = `
-          <span class="map-item-tag"><a></span>
-          ${link.className ? `<span class="map-item-class">.${link.className}</span>` : ''}
-          ${link.id ? `<span class="map-item-id">#${link.id}</span>` : ''}
-          <div style="margin-top: 0.2rem; color: #aaa; font-size: 0.8rem;">${link.textContent.substring(0, 40)}${link.textContent.length > 40 ? '...' : ''}</div>
-          <div style="color: #3498db; font-size: 0.7rem;">${link.href}</div>
-        `;
-        linksContainer.appendChild(item);
-      });
-      // Secciones
-      const sectionsContainer = document.getElementById('mapSections');
-      document.querySelectorAll('section, header, footer, .section, .container').forEach(section => {
-        if(section.tagName === 'SECTION' || section.tagName === 'HEADER' || section.tagName === 'FOOTER' ||
-           section.classList.contains('section') || section.classList.contains('container')) {
-          counts[section.tagName.toLowerCase()] = (counts[section.tagName.toLowerCase()] || 0) + 1;
-          const item = document.createElement('div');
-          item.className = 'map-item';
-          item.innerHTML = `
-            <span class="map-item-tag"><${section.tagName.toLowerCase()}></span>
-            ${section.className ? `<span class="map-item-class">.${section.className}</span>` : ''}
-            ${section.id ? `<span class="map-item-id">#${section.id}</span>` : ''}
-            <div style="margin-top: 0.2rem; color: #aaa; font-size: 0.8rem;">${section.textContent.substring(0, 50)}${section.textContent.length > 50 ? '...' : ''}</div>
-          `;
-          sectionsContainer.appendChild(item);
-        }
-      });
-      // Formularios y campos
-      const formsContainer = document.getElementById('mapForms');
-      document.querySelectorAll('form, input, textarea, select').forEach(el => {
-        counts[el.tagName.toLowerCase()] = (counts[el.tagName.toLowerCase()] || 0) + 1;
-        const item = document.createElement('div');
-        item.className = 'map-item';
-        item.innerHTML = `
-          <span class="map-item-tag"><${el.tagName.toLowerCase()}></span>
-          ${el.className ? `<span class="map-item-class">.${el.className}</span>` : ''}
-          ${el.id ? `<span class="map-item-id">#${el.id}</span>` : ''}
-          ${el.name ? `<div style="color: #f39c12; font-size: 0.7rem;">name="${el.name}"</div>` : ''}
-          ${el.type ? `<div style="color: #9b59b6; font-size: 0.7rem;">type="${el.type}"</div>` : ''}
-        `;
-        formsContainer.appendChild(item);
-      });
-      // Botones
-      const buttonsContainer = document.getElementById('mapButtons');
-      document.querySelectorAll('button, .btn, .button').forEach(btn => {
-        counts.button = (counts.button || 0) + 1;
-        const item = document.createElement('div');
-        item.className = 'map-item';
-        item.innerHTML = `
-          <span class="map-item-tag"><${btn.tagName.toLowerCase() || 'button'}></span>
-          ${btn.className ? `<span class="map-item-class">.${btn.className}</span>` : ''}
-          ${btn.id ? `<span class="map-item-id">#${btn.id}</span>` : ''}
-          <div style="margin-top: 0.2rem; color: #aaa; font-size: 0.8rem;">${btn.textContent.substring(0, 40)}${btn.textContent.length > 40 ? '...' : ''}</div>
-        `;
-        buttonsContainer.appendChild(item);
-      });
-      // Estadísticas
-      const statsContainer = document.getElementById('mapStats');
-      statsContainer.innerHTML = `
-        <div class="map-stat">Encabezados: <span class="map-stat-number">${counts.h1+counts.h2+counts.h3+counts.h4+counts.h5+counts.h6}</span> (H1:${counts.h1} H2:${counts.h2} H3:${counts.h3})</div>
-        <div class="map-stat">Imágenes: <span class="map-stat-number">${counts.img}</span></div>
-        <div class="map-stat">Enlaces: <span class="map-stat-number">${counts.a}</span></div>
-        <div class="map-stat">Formularios: <span class="map-stat-number">${counts.form||0}</span></div>
-        <div class="map-stat">Campos: <span class="map-stat-number">${(counts.input||0)+(counts.textarea||0)}</span></div>
-        <div class="map-stat">Botones: <span class="map-stat-number">${counts.button||0}</span></div>
-      `;
-    }
-  }
-  // Inicializar herramientas cuando la página cargue
-  document.addEventListener('DOMContentLoaded', () => {
-    // Solo cargar herramientas si estamos en modo dev o autenticados
-    if (isDevEnvironment() || sessionStorage.getItem('devAccess')) {
-      initializeDevTools();
-    }
-  });
-</script>
+
+      try {
+        // Guardar en Firebase
+        await db.collection('contactos').add(formData);
+
+        // ✅ Notificación a Telegram
+        const BOT_TOKEN = '8415287831:AAGNh1DUsu4Dgghc6UBSzq9do4LFvyKouH8'; // ← Reemplaza aquí
+        const CHAT_ID = '7523354646'; // ← Reemplaza aquí
+        const mensajeTelegram = `
+🔔 *Nuevo Lead en Coreltech Landing*
+
+👤 *Nombre:* ${formData.nombre}
+📧 *Email:* ${formData.email}
+📞 *Teléfono:* ${formData.telefono}
+📝 *Mensaje:* ${formData.mensaje}
+📅 *Fecha:* ${formData.fecha}
+
+#NuevoLead #SoporteIT
+        `.trim();
+
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: mensajeTelegram,
+            parse_mode: 'Markdown'
+          })
+        });
+
+        // Éxito
+        alert('✅ ¡Listo! Te contactaremos en menos de 24 horas.\n\n¿Urgente? Escríbenos por WhatsApp.');
+        window.open('https://wa.me/584145828186', '_blank');
+        form.reset();
+
+      } catch (error) {
+        console.error("Error:", error);
+        alert('❌ Hubo un error. Por favor, escríbenos directamente por WhatsApp.');
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
