@@ -9,19 +9,13 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <!-- Favicon -->
-  <link rel="icon" href="assets/img/favicon.webp" type="image/webp">
+  <link rel="icon" href="https://coreltech-web.vercel.app/assets/img/favicon.webp" type="image/webp">
   <style>
-    /* =========================
-       = Reset básico
-       ========================= */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    /* =========================
-       = Variables de estilo
-       ========================= */
     :root {
       --primary: #0066CC;
       --secondary: #00C9B1;
@@ -34,9 +28,6 @@
       --font-size-base: 16px;
       --border-radius-base: 8px;
     }
-    /* =========================
-       = Estilos generales
-       ========================= */
     body {
       font-family: var(--font-main);
       color: var(--text);
@@ -63,18 +54,26 @@
       color: var(--secondary);
     }
     /* =========================
-       = Header mínimo
+       = Header Profesional
        ========================= */
     .landing-header {
       padding: 1rem 0;
       background-color: var(--white);
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1000;
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .logo img {
+      height: 40px;
       vertical-align: middle;
     }
     /* =========================
-       = Hero Principal con imagen de fondo
+       = Hero Principal
        ========================= */
     .hero-landing {
       position: relative;
@@ -85,7 +84,7 @@
       text-align: center;
       color: white;
       overflow: hidden;
-      background: url('assets/img/hero-tech.webp') center/cover no-repeat;
+      background: url('https://coreltech-web.vercel.app/assets/img/hero-tech.webp') center/cover no-repeat;
       border-bottom: 1px solid var(--border);
     }
     .hero-landing::before {
@@ -149,7 +148,7 @@
       color: var(--secondary);
     }
     /* =========================
-       = ¿Qué resolvemos?
+       = Soluciones con Enlaces
        ========================= */
     .solutions-section {
       padding: 5rem 0;
@@ -166,6 +165,12 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2.5rem;
       justify-items: center;
+    }
+    .solution-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
     }
     .solution-item {
       text-align: center;
@@ -208,10 +213,6 @@
       padding: 5rem 0;
       text-align: center;
     }
-    .case-study .container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
     .case-card {
       background: white;
       padding: 3rem 2rem;
@@ -241,7 +242,7 @@
       margin-top: 1.5rem;
     }
     /* =========================
-       = Sección de Confianza
+       = Confianza
        ========================= */
     .trust-section {
       padding: 3rem 0;
@@ -273,7 +274,7 @@
       color: #555;
     }
     /* =========================
-       = Formulario de contacto
+       = Formulario
        ========================= */
     .contact-section {
       padding: 6rem 0;
@@ -282,10 +283,7 @@
       background: white;
       padding: 3rem;
       border-radius: calc(var(--border-radius-base) + 12px);
-      box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.15),
-        0 15px 20px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(0, 102, 204, 0.15);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 15px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(0, 102, 204, 0.15);
       border: 1px solid rgba(0, 102, 204, 0.2);
       transition: all 0.3s ease;
       max-width: 600px;
@@ -304,10 +302,7 @@
     }
     .contact-form:hover {
       transform: translateY(-6px);
-      box-shadow: 
-        0 40px 80px rgba(0, 0, 0, 0.2),
-        0 20px 30px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(0, 102, 204, 0.25);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2), 0 20px 30px rgba(0,0,0,0.1), 0 0 0 1px rgba(0, 102, 204, 0.25);
     }
     .contact-form h2 {
       text-align: center;
@@ -358,7 +353,7 @@
       box-shadow: 0 10px 20px rgba(0, 201, 177, 0.2);
     }
     /* =========================
-       = Acceso al blog
+       = Blog
        ========================= */
     .blog-access {
       padding: 5rem 0;
@@ -375,7 +370,7 @@
       font-size: 1.1rem;
     }
     /* =========================
-       = Footer mínimo
+       = Footer
        ========================= */
     .footer-minimal {
       padding: 2.5rem 0;
@@ -386,7 +381,7 @@
       border-top: 1px solid var(--border);
     }
     /* =========================
-       = WhatsApp Flotante
+       = WhatsApp
        ========================= */
     .whatsapp-fab {
       position: fixed;
@@ -432,36 +427,19 @@
         padding: 1.2rem 2.2rem;
         font-size: 1.3rem;
       }
-      .contact-form input,
-      .contact-form textarea {
-        padding: 1rem;
-        font-size: 1rem;
-      }
       .whatsapp-fab img {
         width: 60px;
       }
     }
-
-    /* =========================
-   = Estilos para enlaces de soluciones
-   ========================= */
-.solution-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform 0.3s ease;
-}
-.solution-link:hover .solution-item {
-  transform: translateY(-10px);
-}
   </style>
 </head>
 <body>
+
   <!-- 🧭 Header -->
   <header class="landing-header">
-    <div class="container">
+    <div class="container header-content">
       <a href="/" class="logo">
-        <img src="assets/img/logo.webp" alt="Coreltech IT Solutions" width="150">
+        <img src="https://coreltech-web.vercel.app/assets/img/logo.webp" alt="Coreltech IT Solutions" width="150">
       </a>
     </div>
   </header>
@@ -479,41 +457,34 @@
   </section>
 
   <!-- 🛠 Soluciones -->
-<section class="solutions-section">
-  <div class="container">
-    <h2 class="section-title">No vendemos partes. Vendemos tranquilidad.</h2>
-    <div class="solutions-grid">
-      
-      <!-- Hardware -->
-      <a href="https://coreltech-web.vercel.app/#hardware" target="_blank" class="solution-link">
-        <div class="solution-item">
-          <img src="assets/img/real-hardware.webp" alt="Reparación de hardware" class="solution-img">
-          <h3>Hardware</h3>
-          <p>Limpieza, reparación y mantenimiento de equipos. Recuperamos lo que otros dan por perdido.</p>
-        </div>
-      </a>
-
-      <!-- Software -->
-      <a href="https://coreltech-web.vercel.app/#software" target="_blank" class="solution-link">
-        <div class="solution-item">
-          <img src="assets/img/real-software.webp" alt="Recuperación de software" class="solution-img">
-          <h3>Software</h3>
-          <p>Recuperación de datos, eliminación de malware, optimización de sistemas.</p>
-        </div>
-      </a>
-
-      <!-- Redes -->
-      <a href="https://coreltech-web.vercel.app/#redes" target="_blank" class="solution-link">
-        <div class="solution-item">
-          <img src="assets/img/real-network.webp" alt="Instalación de red" class="solution-img">
-          <h3>Redes</h3>
-          <p>Diseño, instalación y estabilidad de redes WiFi y cableadas. Sin puntos muertos.</p>
-        </div>
-      </a>
-
+  <section class="solutions-section">
+    <div class="container">
+      <h2 class="section-title">No vendemos partes. Vendemos tranquilidad.</h2>
+      <div class="solutions-grid">
+        <a href="https://coreltech-web.vercel.app/#hardware" target="_blank" class="solution-link">
+          <div class="solution-item">
+            <img src="https://coreltech-web.vercel.app/assets/img/real-hardware.webp" alt="Reparación de hardware" class="solution-img">
+            <h3>Hardware</h3>
+            <p>Limpieza, reparación y mantenimiento de equipos. Recuperamos lo que otros dan por perdido.</p>
+          </div>
+        </a>
+        <a href="https://coreltech-web.vercel.app/#software" target="_blank" class="solution-link">
+          <div class="solution-item">
+            <img src="https://coreltech-web.vercel.app/assets/img/real-software.webp" alt="Recuperación de software" class="solution-img">
+            <h3>Software</h3>
+            <p>Recuperación de datos, eliminación de malware, optimización de sistemas.</p>
+          </div>
+        </a>
+        <a href="https://coreltech-web.vercel.app/#redes" target="_blank" class="solution-link">
+          <div class="solution-item">
+            <img src="https://coreltech-web.vercel.app/assets/img/real-network.webp" alt="Instalación de red" class="solution-img">
+            <h3>Redes</h3>
+            <p>Diseño, instalación y estabilidad de redes WiFi y cableadas. Sin puntos muertos.</p>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- 💼 Caso de Éxito -->
   <section class="case-study">
@@ -586,10 +557,10 @@
 
   <!-- 📞 WhatsApp -->
   <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-fab">
-    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
+    <img src="https://coreltech-web.vercel.app/assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
 
-  <!-- ✅ Firebase + Telegram Notificaciones -->
+  <!-- ✅ Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script>
@@ -611,7 +582,6 @@
       const form = this;
       const btn = form.querySelector('button');
       const originalText = btn.textContent;
-
       btn.textContent = 'Enviando...';
       btn.disabled = true;
 
@@ -620,25 +590,21 @@
         email: form.email.value.trim(),
         telefono: form.telefono.value.trim(),
         mensaje: form.mensaje.value.trim(),
-        fecha: new Date().toLocaleString('es-VE')
+        fecha: new Date() // ✅ Guardado como Timestamp
       };
 
       try {
-        // Guardar en Firebase
         await db.collection('contactos').add(formData);
 
-        // ✅ Notificación a Telegram
-        const BOT_TOKEN = '8415287831:AAGNh1DUsu4Dgghc6UBSzq9do4LFvyKouH8'; // ← Reemplaza aquí
-        const CHAT_ID = '7523354646'; // ← Reemplaza aquí
-        const mensajeTelegram = `
+        const BOT_TOKEN = '8415287831:AAGNh1DUsu4Dgghc6UBSzq9do4LFvyKouH8';
+        const CHAT_ID = '7523354646';
+        const mensaje = `
 🔔 *Nuevo Lead en Coreltech Landing*
-
 👤 *Nombre:* ${formData.nombre}
 📧 *Email:* ${formData.email}
 📞 *Teléfono:* ${formData.telefono}
 📝 *Mensaje:* ${formData.mensaje}
-📅 *Fecha:* ${formData.fecha}
-
+📅 *Fecha:* ${new Date().toLocaleString('es-VE')}
 #NuevoLead #SoporteIT
         `.trim();
 
@@ -647,13 +613,12 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             chat_id: CHAT_ID,
-            text: mensajeTelegram,
+            text: mensaje,
             parse_mode: 'Markdown'
           })
         });
 
-        // Éxito
-        alert('✅ ¡Listo! Te contactaremos en menos de 24 horas.\n\n¿Urgente? Escríbenos por WhatsApp.');
+        alert('✅ ¡Listo! Te contactaremos en menos de 24 horas.\n¿Urgente? Escríbenos por WhatsApp.');
         window.open('https://wa.me/584145828186', '_blank');
         form.reset();
 
@@ -666,5 +631,6 @@
       }
     });
   </script>
+
 </body>
 </html>

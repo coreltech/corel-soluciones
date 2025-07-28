@@ -3,48 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel - Leads Landing</title>
+  <title>Panel - Leads de Landing | Coreltech</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <!-- Favicon -->
+  <link rel="icon" href="https://coreltech-web.vercel.app/assets/img/favicon.webp" type="image/webp">
   <!-- Estilos -->
   <style>
     :root {
       --primary: #0066CC;
-      --color-white: #fff;
+      --secondary: #00C9B1;
+      --text: #2D3748;
+      --light: #F8F9FC;
+      --white: #FFFFFF;
       --font-main: 'Poppins', sans-serif;
+      --border-radius: 8px;
     }
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     body {
       font-family: var(--font-main);
-      background: #f0f2f5;
+      color: var(--text);
+      background-color: var(--light);
       line-height: 1.6;
       padding: 20px;
     }
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      overflow: hidden;
+      background-color: white;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     header {
-      background: var(--primary);
-      color: white;
-      padding: 1.5rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
-    header h1 {
+    .logo {
+      margin-bottom: 1rem;
+    }
+    .logo img {
+      height: 40px;
+    }
+    h1 {
+      color: var(--primary);
       font-size: 1.8rem;
     }
     .login-screen, .dashboard {
-      padding: 2rem;
       text-align: center;
     }
     .login-form input {
@@ -52,7 +65,7 @@
       padding: 0.8rem;
       margin: 0.5rem 0;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       font-size: 1rem;
     }
     .btn {
@@ -60,10 +73,16 @@
       color: white;
       border: none;
       padding: 0.8rem 1.5rem;
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       cursor: pointer;
       font-size: 1rem;
-      margin-top: 1rem;
+      margin: 0.5rem 0.5rem;
+    }
+    .btn-secondary {
+      background: #e74c3c;
+    }
+    .btn-refresh {
+      background: var(--secondary);
     }
     table {
       width: 100%;
@@ -76,33 +95,39 @@
       text-align: left;
     }
     th {
-      background: #f8f9fc;
-      color: #2D3748;
+      background: #f0f8ff;
+      color: var(--primary);
     }
     tr:nth-child(even) {
       background: #f9f9f9;
     }
-    .logout-btn {
-      background: #e74c3c;
-      display: block;
-      width: 200px;
-      margin: 2rem auto;
-    }
     .loading, .error {
       padding: 20px;
       font-style: italic;
-      color: #666;
     }
     .error {
       color: #a00;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Pantalla de Login -->
+    <!-- 🧭 Header -->
+    <header>
+      <div class="logo">
+        <img src="https://coreltech-web.vercel.app/assets/img/logo.webp" alt="Coreltech IT Solutions" width="150">
+      </div>
+      <h1>Panel de Administración - Leads</h1>
+    </header>
+
+    <!-- 🔐 Pantalla de Login -->
     <div id="loginScreen" class="login-screen">
-      <h2>🔐 Acceso al Panel de Administración</h2>
       <p>Ingresa tu correo y contraseña para ver los leads</p>
       <div class="login-form">
         <input type="email" id="email" placeholder="Tu correo de administrador" required>
@@ -111,15 +136,16 @@
       </div>
     </div>
 
-    <!-- Dashboard -->
+    <!-- 📊 Dashboard -->
     <div id="dashboard" class="dashboard" style="display: none;">
-      <h2>Leads Recibidos</h2>
-      <button onclick="logout()" class="btn logout-btn">Cerrar Sesión</button>
+      <button onclick="logout()" class="btn btn-secondary">Cerrar Sesión</button>
+      <button id="refreshBtn" class="btn btn-refresh">🔄 Actualizar Leads</button>
+
       <div id="status-message" class="loading">Cargando leads...</div>
       <table id="leads-table" style="display: none;">
         <thead>
           <tr>
-            <th>Fecha</th>
+            <th>Fecha/Hora</th>
             <th>Nombre</th>
             <th>Email</th>
             <th>Teléfono</th>
@@ -131,6 +157,12 @@
     </div>
   </div>
 
+  <!-- Pie de página -->
+  <div class="footer">
+    <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
+  </div>
+
+  <!-- Firebase Config -->
   <script>
     // 🔐 Configuración de Firebase
     const firebaseConfig = {
@@ -141,13 +173,11 @@
       messagingSenderId: "776481773634",
       appId: "1:776481773634:web:8608f6a15710cdb10775db"
     };
-
-    // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
     const auth = firebase.auth();
 
-    // Verificar sesión al cargar
+    // Verificar sesión
     auth.onAuthStateChanged(user => {
       if (user) {
         document.getElementById('loginScreen').style.display = 'none';
@@ -179,6 +209,12 @@
       const tbody = document.querySelector('#leads-table tbody');
       const status = document.getElementById('status-message');
 
+      // Limpiar tabla
+      tbody.innerHTML = '';
+      status.textContent = 'Cargando leads...';
+      status.className = 'loading';
+      document.getElementById('leads-table').style.display = 'none';
+
       try {
         const snapshot = await db.collection('contactos')
                                 .orderBy('fecha', 'desc')
@@ -196,8 +232,14 @@
           const data = doc.data();
           const tr = document.createElement('tr');
 
+          // ✅ Convertir Timestamp a fecha legible
+          let fechaFormateada = 'Sin fecha';
+          if (data.fecha && data.fecha.toDate) {
+            fechaFormateada = data.fecha.toDate().toLocaleString('es-VE');
+          }
+
           tr.innerHTML = `
-            <td>${data.fecha || 'Sin fecha'}</td>
+            <td>${fechaFormateada}</td>
             <td>${data.nombre || 'N/A'}</td>
             <td><a href="mailto:${data.email}">${data.email}</a></td>
             <td><a href="tel:${data.telefono}">${data.telefono}</a></td>
@@ -207,10 +249,14 @@
         });
 
       } catch (error) {
+        console.error("Error al cargar leads:", error);
         status.textContent = `Error: ${error.message}`;
         status.className = 'error';
       }
     }
+
+    // Botón de actualización
+    document.getElementById('refreshBtn').addEventListener('click', loadLeads);
   </script>
 </body>
 </html>

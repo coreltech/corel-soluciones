@@ -8,6 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <!-- Estilos -->
   <style>
     :root {
@@ -34,57 +38,27 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
-      display: none; /* Oculto hasta autenticar */
-    }
-    .lock-screen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #1a1a1a;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      text-align: center;
-    }
-    .lock-screen h1 {
-      color: #00C9B1;
-      margin-bottom: 1rem;
-    }
-    .lock-screen p {
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-      color: #ccc;
-    }
-    .lock-form input {
-      padding: 0.8rem;
-      width: 300px;
-      border: 2px solid #0066CC;
-      border-radius: 8px;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .lock-form button {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .lock-form button:hover {
-      background-color: #004080;
     }
     header {
       text-align: center;
       margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      height: 40px;
     }
     h1 {
       color: var(--primary);
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    .actions {
+      display: flex;
+      gap: 1rem;
     }
     .stats {
       display: flex;
@@ -129,7 +103,56 @@
       font-size: 0.9rem;
       margin-top: 2rem;
     }
-    .refresh-btn {
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .btn-refresh {
+      background-color: var(--primary);
+      color: white;
+    }
+    .btn-logout {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .btn-refresh:hover {
+      background-color: #004080;
+    }
+    .btn-logout:hover {
+      background-color: #c0392b;
+    }
+    /* Pantalla de login */
+    .login-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+    }
+    .login-screen h1 {
+      color: #00C9B1;
+      margin-bottom: 1rem;
+    }
+    .login-form input {
+      padding: 0.8rem;
+      width: 300px;
+      border: 2px solid #0066CC;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+    .login-form button {
       background-color: var(--primary);
       color: white;
       border: none;
@@ -137,10 +160,6 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-    .refresh-btn:hover {
-      background-color: #004080;
     }
     @media (max-width: 768px) {
       .charts {
@@ -149,27 +168,34 @@
       .stat-card {
         min-width: 150px;
       }
+      .actions {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔒 Pantalla de Bloqueo -->
-  <div class="lock-screen" id="lockScreen">
-    <h1>🔒 Panel de Administración</h1>
-    <p>Ingresa la contraseña para acceder al dashboard de leads</p>
-    <div class="lock-form">
-      <input type="password" id="passwordInput" placeholder="Contraseña" autocomplete="off">
-      <button id="unlockBtn">Acceder</button>
+  <!-- 🔐 Pantalla de Login -->
+  <div class="login-screen" id="loginScreen">
+    <h1>🔒 Dashboard de Leads - Coreltech</h1>
+    <p>Ingresa tu correo y contraseña para ver los datos</p>
+    <div class="login-form">
+      <input type="email" id="email" placeholder="Tu correo de administrador" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button id="loginBtn">Iniciar Sesión</button>
     </div>
   </div>
 
-  <!-- 📊 Dashboard (visible solo tras contraseña correcta) -->
-  <div class="container" id="dashboard">
+  <!-- 📊 Dashboard -->
+  <div class="container" id="dashboard" style="display: none;">
     <header>
-      <h1>📊 Dashboard de Leads - Coreltech</h1>
-      <p>Visualización de contactos recibidos desde la landing page</p>
-      <button id="refresh-btn" class="refresh-btn">🔄 Actualizar Datos</button>
+      <img src="https://coreltech-web.vercel.app/assets/img/logo.webp" alt="Coreltech" class="logo">
+      <h1>📊 Dashboard de Leads</h1>
+      <div class="actions">
+        <button id="refresh-btn" class="btn btn-refresh">🔄 Actualizar Datos</button>
+        <button id="logoutBtn" class="btn btn-logout">🚪 Cerrar Sesión</button>
+      </div>
     </header>
 
     <div class="stats">
@@ -204,33 +230,7 @@
     <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
   <script>
-    // 🔐 Contraseña para acceder al panel
-    const CONTRASEÑA = 'coreltech2025'; // ← Cambia esta contraseña por una segura
-
-    // 🔓 Verificar contraseña
-    document.getElementById('unlockBtn').addEventListener('click', function() {
-      const password = document.getElementById('passwordInput').value;
-      if (password === CONTRASEÑA) {
-        document.getElementById('lockScreen').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'block';
-        cargarDatos(); // Cargar datos al acceder
-      } else {
-        alert('❌ Contraseña incorrecta');
-      }
-    });
-
-    // Permitir presionar Enter
-    document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        document.getElementById('unlockBtn').click();
-      }
-    });
-
     // 🔐 Configuración de Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyDD7Wp_TpfHKHfdDqaCLqWbjX5E3WZllGA",
@@ -244,15 +244,51 @@
     // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
+    const auth = firebase.auth();
 
     // Referencias a elementos
+    const loginScreen = document.getElementById('loginScreen');
+    const dashboard = document.getElementById('dashboard');
+    const loginBtn = document.getElementById('loginBtn');
+    const refreshBtn = document.getElementById('refresh-btn');
+    const logoutBtn = document.getElementById('logoutBtn');
     const totalLeadsEl = document.getElementById('total-leads');
     const leadsHoyEl = document.getElementById('leads-hoy');
     const leadsSemanaEl = document.getElementById('leads-semana');
-    const refreshBtn = document.getElementById('refresh-btn');
 
     // Gráficos
     let leadsPorDiaChart, origenLeadsChart, tipoProblemaChart;
+
+    // Verificar sesión
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        loginScreen.style.display = 'none';
+        dashboard.style.display = 'block';
+        initCharts();
+        cargarDatos();
+      } else {
+        loginScreen.style.display = 'flex';
+        dashboard.style.display = 'none';
+      }
+    });
+
+    // Iniciar sesión
+    loginBtn.addEventListener('click', () => {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      auth.signInWithEmailAndPassword(email, password)
+        .catch(error => {
+          alert("Error: " + error.message);
+        });
+    });
+
+    // Cerrar sesión
+    logoutBtn.addEventListener('click', () => {
+      auth.signOut().then(() => {
+        alert('👋 Sesión cerrada. Hasta pronto.');
+      });
+    });
 
     // Inicializar gráficos
     function initCharts() {
@@ -301,34 +337,38 @@
       });
     }
 
-    // Cargar y procesar datos
+    // Cargar datos
     async function cargarDatos() {
       try {
-        const snapshot = await db.collection('contactos')
-                                .orderBy('fecha', 'desc')
-                                .get();
+        const snapshot = await db.collection('contactos').orderBy('fecha', 'desc').get();
 
         const hoy = new Date();
-        const inicioHoy = new Date(hoy.setHours(0,0,0,0));
-        const inicioSemana = new Date(hoy.setDate(hoy.getDate() - hoy.getDay()));
+        hoy.setHours(0,0,0,0);
+        const inicioSemana = new Date(hoy.getTime() - hoy.getDay() * 24 * 60 * 60 * 1000);
 
         let total = 0;
         let hoyCount = 0;
         let semanaCount = 0;
-
         const porDia = {};
         const porOrigen = { formulario: 0, blog: 0, popup: 0 };
         const porTipo = { hardware: 0, software: 0, redes: 0, general: 0 };
 
         snapshot.forEach(doc => {
           const data = doc.data();
-          const fechaStr = data.fecha; // "28/07/2025 10:30:45"
-          const fecha = new Date(fechaStr);
+          let fecha = null;
+
+          if (data.fecha && data.fecha.toDate) {
+            fecha = data.fecha.toDate();
+          } else {
+            console.warn("Fecha inválida para doc:", doc.id);
+            return;
+          }
+
           const dia = fecha.toLocaleDateString('es-VE');
           porDia[dia] = (porDia[dia] || 0) + 1;
 
           total++;
-          if (fecha >= inicioHoy) hoyCount++;
+          if (fecha >= hoy) hoyCount++;
           if (fecha >= inicioSemana) semanaCount++;
 
           porOrigen.formulario++;
@@ -340,51 +380,27 @@
           else porTipo.general++;
         });
 
-        // Actualizar estadísticas
         totalLeadsEl.textContent = total;
         leadsHoyEl.textContent = hoyCount;
         leadsSemanaEl.textContent = semanaCount;
 
-        // Actualizar gráficos
         leadsPorDiaChart.data.labels = Object.keys(porDia);
         leadsPorDiaChart.data.datasets[0].data = Object.values(porDia);
         leadsPorDiaChart.update();
 
-        origenLeadsChart.data.datasets[0].data = [
-          porOrigen.formulario,
-          porOrigen.blog,
-          porOrigen.popup
-        ];
+        origenLeadsChart.data.datasets[0].data = [porOrigen.formulario, porOrigen.blog, porOrigen.popup];
         origenLeadsChart.update();
 
-        tipoProblemaChart.data.datasets[0].data = [
-          porTipo.hardware,
-          porTipo.software,
-          porTipo.redes,
-          porTipo.general
-        ];
+        tipoProblemaChart.data.datasets[0].data = [porTipo.hardware, porTipo.software, porTipo.redes, porTipo.general];
         tipoProblemaChart.update();
 
       } catch (error) {
         console.error("Error al cargar datos:", error);
-        alert("Error al cargar datos. Revisa la consola.");
+        alert("❌ Error al cargar datos. Revisa la consola.");
       }
     }
 
-    // Inicializar
-    window.onload = function() {
-      // Si ya está autenticado (opcional con sessionStorage)
-      if (sessionStorage.getItem('dashboardAuth') === 'true') {
-        document.getElementById('lockScreen').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'block';
-        initCharts();
-        cargarDatos();
-      } else {
-        initCharts(); // Inicializa los gráficos vacíos
-      }
-    };
-
-    // Botón de refresco
+    // Botones
     refreshBtn.addEventListener('click', cargarDatos);
   </script>
 </body>
