@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Leads Coreltech</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Estilos -->
+  <style>
+    :root {
+      --primary: #0066CC;
+      --secondary: #00C9B1;
+      --text: #2D3748;
+      --light: #F8F9FC;
+      --white: #FFFFFF;
+      --font-main: 'Poppins', sans-serif;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: var(--font-main);
+      color: var(--text);
+      background-color: var(--light);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: none; /* Oculto hasta autenticar */
+    }
+    .lock-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+    }
+    .lock-screen h1 {
+      color: #00C9B1;
+      margin-bottom: 1rem;
+    }
+    .lock-screen p {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    .lock-form input {
+      padding: 0.8rem;
+      width: 300px;
+      border: 2px solid #0066CC;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .lock-form button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .lock-form button:hover {
+      background-color: #004080;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      color: var(--primary);
+    }
+    .stats {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      text-align: center;
+      min-width: 200px;
+    }
+    .stat-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .stat-card p {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .charts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .chart-container {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    .refresh-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .refresh-btn:hover {
+      background-color: #004080;
+    }
+    @media (max-width: 768px) {
+      .charts {
+        grid-template-columns: 1fr;
+      }
+      .stat-card {
+        min-width: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔒 Pantalla de Bloqueo -->
+  <div class="lock-screen" id="lockScreen">
+    <h1>🔒 Panel de Administración</h1>
+    <p>Ingresa la contraseña para acceder al dashboard de leads</p>
+    <div class="lock-form">
+      <input type="password" id="passwordInput" placeholder="Contraseña" autocomplete="off">
+      <button id="unlockBtn">Acceder</button>
+    </div>
+  </div>
+
+  <!-- 📊 Dashboard (visible solo tras contraseña correcta) -->
+  <div class="container" id="dashboard">
+    <header>
+      <h1>📊 Dashboard de Leads - Coreltech</h1>
+      <p>Visualización de contactos recibidos desde la landing page</p>
+      <button id="refresh-btn" class="refresh-btn">🔄 Actualizar Datos</button>
+    </header>
+
+    <div class="stats">
+      <div class="stat-card">
+        <h3>Total de Leads</h3>
+        <p id="total-leads">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Hoy</h3>
+        <p id="leads-hoy">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Esta Semana</h3>
+        <p id="leads-semana">0</p>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-container">
+        <canvas id="leadsPorDia"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="origenLeads"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="tipoProblema"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // 🔐 Contraseña para acceder al panel
+    const CONTRASEÑA = 'coreltech2025'; // ← Cambia esta contraseña por una segura
+
+    // 🔓 Verificar contraseña
+    document.getElementById('unlockBtn').addEventListener('click', function() {
+      const password = document.getElementById('passwordInput').value;
+      if (password === CONTRASEÑA) {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        cargarDatos(); // Cargar datos al acceder
+      } else {
+        alert('❌ Contraseña incorrecta');
+      }
+    });
+
+    // Permitir presionar Enter
+    document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        document.getElementById('unlockBtn').click();
+      }
+    });
+
+    // 🔐 Configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDD7Wp_TpfHKHfdDqaCLqWbjX5E3WZllGA",
+      authDomain: "coreltech-it.firebaseapp.com",
+      projectId: "coreltech-it",
+      storageBucket: "coreltech-it.firebasestorage.app",
+      messagingSenderId: "776481773634",
+      appId: "1:776481773634:web:8608f6a15710cdb10775db"
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Referencias a elementos
+    const totalLeadsEl = document.getElementById('total-leads');
+    const leadsHoyEl = document.getElementById('leads-hoy');
+    const leadsSemanaEl = document.getElementById('leads-semana');
+    const refreshBtn = document.getElementById('refresh-btn');
+
+    // Gráficos
+    let leadsPorDiaChart, origenLeadsChart, tipoProblemaChart;
+
+    // Inicializar gráficos
+    function initCharts() {
+      const ctx1 = document.getElementById('leadsPorDia').getContext('2d');
+      const ctx2 = document.getElementById('origenLeads').getContext('2d');
+      const ctx3 = document.getElementById('tipoProblema').getContext('2d');
+
+      leadsPorDiaChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Leads por Día',
+            data: [],
+            borderColor: '#0066CC',
+            backgroundColor: 'rgba(0, 102, 204, 0.1)',
+            fill: true
+          }]
+        },
+        options: { responsive: true }
+      });
+
+      origenLeadsChart = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+          labels: ['Formulario', 'Blog', 'Pop-up'],
+          datasets: [{
+            data: [0, 0, 0],
+            backgroundColor: ['#0066CC', '#00C9B1', '#FF6B6B']
+          }]
+        },
+        options: { responsive: true }
+      });
+
+      tipoProblemaChart = new Chart(ctx3, {
+        type: 'bar',
+        data: {
+          labels: ['Hardware', 'Software', 'Redes', 'General'],
+          datasets: [{
+            label: 'Tipo de Problema',
+            data: [0, 0, 0, 0],
+            backgroundColor: '#0066CC'
+          }]
+        },
+        options: { responsive: true }
+      });
+    }
+
+    // Cargar y procesar datos
+    async function cargarDatos() {
+      try {
+        const snapshot = await db.collection('contactos')
+                                .orderBy('fecha', 'desc')
+                                .get();
+
+        const hoy = new Date();
+        const inicioHoy = new Date(hoy.setHours(0,0,0,0));
+        const inicioSemana = new Date(hoy.setDate(hoy.getDate() - hoy.getDay()));
+
+        let total = 0;
+        let hoyCount = 0;
+        let semanaCount = 0;
+
+        const porDia = {};
+        const porOrigen = { formulario: 0, blog: 0, popup: 0 };
+        const porTipo = { hardware: 0, software: 0, redes: 0, general: 0 };
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const fechaStr = data.fecha; // "28/07/2025 10:30:45"
+          const fecha = new Date(fechaStr);
+          const dia = fecha.toLocaleDateString('es-VE');
+          porDia[dia] = (porDia[dia] || 0) + 1;
+
+          total++;
+          if (fecha >= inicioHoy) hoyCount++;
+          if (fecha >= inicioSemana) semanaCount++;
+
+          porOrigen.formulario++;
+
+          const mensaje = (data.mensaje || '').toLowerCase();
+          if (mensaje.includes('hardware')) porTipo.hardware++;
+          else if (mensaje.includes('software')) porTipo.software++;
+          else if (mensaje.includes('red') || mensaje.includes('wifi')) porTipo.redes++;
+          else porTipo.general++;
+        });
+
+        // Actualizar estadísticas
+        totalLeadsEl.textContent = total;
+        leadsHoyEl.textContent = hoyCount;
+        leadsSemanaEl.textContent = semanaCount;
+
+        // Actualizar gráficos
+        leadsPorDiaChart.data.labels = Object.keys(porDia);
+        leadsPorDiaChart.data.datasets[0].data = Object.values(porDia);
+        leadsPorDiaChart.update();
+
+        origenLeadsChart.data.datasets[0].data = [
+          porOrigen.formulario,
+          porOrigen.blog,
+          porOrigen.popup
+        ];
+        origenLeadsChart.update();
+
+        tipoProblemaChart.data.datasets[0].data = [
+          porTipo.hardware,
+          porTipo.software,
+          porTipo.redes,
+          porTipo.general
+        ];
+        tipoProblemaChart.update();
+
+      } catch (error) {
+        console.error("Error al cargar datos:", error);
+        alert("Error al cargar datos. Revisa la consola.");
+      }
+    }
+
+    // Inicializar
+    window.onload = function() {
+      // Si ya está autenticado (opcional con sessionStorage)
+      if (sessionStorage.getItem('dashboardAuth') === 'true') {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        initCharts();
+        cargarDatos();
+      } else {
+        initCharts(); // Inicializa los gráficos vacíos
+      }
+    };
+
+    // Botón de refresco
+    refreshBtn.addEventListener('click', cargarDatos);
+  </script>
+</body>
+</html>
