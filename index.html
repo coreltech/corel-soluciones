@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Soporte técnico empresarial con respuesta en menos de 60 minutos. Reparamos hardware, software y redes. ¡Solicita ayuda ahora!">
-  <meta name="keywords" content="soporte técnico empresas, reparación de servidores, falla de red, soporte IT, mantenimiento computadoras empresa, Coreltech, redes empresariales, recuperación de datos">
+  <meta name="description" content="Soporte técnico empresarial con respuesta en menos de 60 minutos. Descarga gratis nuestra guía o solicita ayuda ahora.">
+  <meta name="keywords" content="soporte técnico empresas, reparación de servidores, falla de red, soporte IT, mantenimiento computadoras empresa, Coreltech, redes empresariales, recuperación de datos, link in bio">
   <title>Soporte Técnico Empresarial Rápido | Coreltech - Respuesta en 60 Min</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <!-- Favicon -->
-  <link rel="icon" href="https://coreltech-web.vercel.app/assets/img/favicon.webp" type="image/webp">
+  <link rel="icon" href="https://coreltech-it.vercel.app/assets/img/favicon.webp" type="image/webp">
   <style>
     * {
       margin: 0;
@@ -26,7 +26,9 @@
       --font-main: 'Poppins', sans-serif;
       --transition: all 0.3s ease;
       --font-size-base: 16px;
-      --border-radius-base: 8px;
+      --border-radius-base: 12px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --shadow-hover: 0 15px 35px rgba(0,0,0,0.15);
     }
     body {
       font-family: var(--font-main);
@@ -49,42 +51,24 @@
     a {
       text-decoration: none;
       color: var(--primary);
+      transition: color 0.3s ease;
     }
     a:hover {
       color: var(--secondary);
     }
     /* =========================
-       = Header Profesional
-       ========================= */
-    .landing-header {
-      padding: 1rem 0;
-      background-color: var(--white);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 1000;
-    }
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo img {
-      height: 40px;
-      vertical-align: middle;
-    }
-    /* =========================
-       = Hero Principal
+       = Hero Principal (Único)
        ========================= */
     .hero-landing {
       position: relative;
-      min-height: 100vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
       overflow: hidden;
-      background: url('https://coreltech-web.vercel.app/assets/img/hero-tech.webp') center/cover no-repeat;
+      background: url('https://coreltech-it.vercel.app/assets/img/hero-tech.webp') center/cover no-repeat;
       border-bottom: 1px solid var(--border);
     }
     .hero-landing::before {
@@ -94,7 +78,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.1)
+      );
       z-index: 1;
     }
     .hero-content {
@@ -108,15 +96,12 @@
       font-weight: 700;
       line-height: 1.3;
       margin-bottom: 1.2rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
     .hero-subtitle {
       font-size: 1.3rem;
       margin-bottom: 2rem;
-      text-shadow: 0 1px 5px rgba(0,0,0,0.5);
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.4);
     }
     .btn-primary {
       display: inline-block;
@@ -127,6 +112,7 @@
       font-size: 1.2rem;
       font-weight: 600;
       transition: var(--transition);
+      margin: 0.5rem;
     }
     .btn-primary:hover {
       background-color: var(--secondary);
@@ -134,25 +120,123 @@
       box-shadow: 0 10px 20px rgba(0, 201, 177, 0.3);
     }
     .btn-secondary {
-      display: inline-block;
       background-color: var(--white);
       color: var(--primary);
-      padding: 0.8rem 1.8rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
     }
     .btn-secondary:hover {
       background-color: #f0f0f0;
       color: var(--secondary);
     }
     /* =========================
-       = Soluciones con Enlaces
+       = Accesos Directos (Para redes sociales)
        ========================= */
-    .solutions-section {
-      padding: 5rem 0;
+    .quick-access {
+      padding: 3rem 0;
       background-color: var(--light);
+      text-align: center;
+    }
+    .quick-access h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .quick-link {
+      display: flex;
+      align-items: center;
+      background: var(--white);
+      padding: 1rem 1.5rem;
+      border-radius: var(--border-radius-base);
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text);
+      transition: var(--transition);
+      min-width: 200px;
+    }
+    .quick-link:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-left: 4px solid var(--primary);
+    }
+    .quick-link img {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.8rem;
+    }
+    /* =========================
+       = Lead Magnet (Diseño unificado)
+       ========================= */
+    .lead-magnet {
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      padding: 2.5rem;
+      background: var(--white);
+      border-radius: var(--border-radius-base);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .lead-magnet h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    .lead-magnet p {
+      color: #555;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .lead-magnet form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .lead-magnet input {
+      flex: 1;
+      min-width: 250px;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #f9fafb;
+    }
+    .lead-magnet input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: white;
+    }
+    .lead-magnet button {
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .lead-magnet button:hover {
+      background: var(--secondary);
+    }
+    /* =========================
+       = Resto del contenido (igual pero coherente)
+       ========================= */
+    .solutions-section,
+    .case-study,
+    .trust-section,
+    .contact-section,
+    .blog-access {
+      padding: 5rem 0;
     }
     .section-title {
       font-size: 2.2rem;
@@ -166,21 +250,13 @@
       gap: 2.5rem;
       justify-items: center;
     }
-    .solution-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: transform 0.3s ease;
-    }
     .solution-item {
       text-align: center;
       padding: 2rem;
       background: var(--white);
       border-radius: var(--border-radius-base);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow);
       transition: transform 0.3s ease;
-      max-width: 300px;
-      margin: 0 auto;
     }
     .solution-item:hover {
       transform: translateY(-10px);
@@ -189,42 +265,30 @@
       width: 120px;
       height: 120px;
       object-fit: cover;
-      border-radius: calc(var(--border-radius-base) - 4px);
+      border-radius: 8px;
       margin: 0 auto 1rem;
       display: block;
       box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-      border: 2px solid rgba(0, 102, 204, 0.1);
     }
     .solution-item h3 {
       font-size: 1.6rem;
       color: var(--primary);
       margin-bottom: 1rem;
-      font-weight: 600;
     }
     .solution-item p {
       font-size: 1.1rem;
       color: #555;
       line-height: 1.6;
     }
-    /* =========================
-       = Caso de Éxito
-       ========================= */
-    .case-study {
-      padding: 5rem 0;
-      text-align: center;
-    }
+    /* Caso de Éxito */
     .case-card {
       background: white;
       padding: 3rem 2rem;
       border-radius: var(--border-radius-base);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      box-shadow: var(--shadow);
       border-left: 6px solid var(--primary);
       max-width: 800px;
       margin: 0 auto;
-      transition: transform 0.3s ease;
-    }
-    .case-card:hover {
-      transform: translateY(-8px);
     }
     blockquote {
       font-family: 'Poppins', sans-serif;
@@ -241,19 +305,7 @@
       display: block;
       margin-top: 1.5rem;
     }
-    /* =========================
-       = Confianza
-       ========================= */
-    .trust-section {
-      padding: 3rem 0;
-      text-align: center;
-      background-color: #f8f9fc;
-    }
-    .trust-section h3 {
-      color: #0066CC;
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
-    }
+    /* Confianza */
     .trust-stats {
       display: flex;
       justify-content: space-around;
@@ -262,34 +314,21 @@
       font-weight: 700;
       color: #2D3748;
     }
-    .trust-item {
-      text-align: center;
-    }
     .trust-item span {
       font-size: 2rem;
       display: block;
+      color: var(--primary);
     }
-    .trust-item small {
-      font-size: 0.9rem;
-      color: #555;
-    }
-    /* =========================
-       = Formulario
-       ========================= */
-    .contact-section {
-      padding: 6rem 0;
-    }
+    /* Formulario */
     .contact-form {
-      background: white;
+      background: var(--white);
       padding: 3rem;
-      border-radius: calc(var(--border-radius-base) + 12px);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 15px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(0, 102, 204, 0.15);
-      border: 1px solid rgba(0, 102, 204, 0.2);
-      transition: all 0.3s ease;
+      border-radius: var(--border-radius-base);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
       max-width: 600px;
       margin: 0 auto;
       position: relative;
-      overflow: hidden;
     }
     .contact-form::before {
       content: '';
@@ -299,10 +338,6 @@
       width: 100%;
       height: 6px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
-    }
-    .contact-form:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.2), 0 20px 30px rgba(0,0,0,0.1), 0 0 0 1px rgba(0, 102, 204, 0.25);
     }
     .contact-form h2 {
       text-align: center;
@@ -322,10 +357,9 @@
       width: 100%;
       padding: 0.9rem;
       margin-bottom: 1.2rem;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border);
       border-radius: 8px;
       font-size: 1rem;
-      transition: all 0.3s ease;
       background-color: #f9fafb;
     }
     .contact-form input:focus,
@@ -333,7 +367,6 @@
       outline: none;
       border-color: var(--primary);
       background-color: white;
-      box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
     }
     .contact-form button {
       width: 100%;
@@ -345,55 +378,36 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
     .contact-form button:hover {
       background-color: var(--secondary);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 201, 177, 0.2);
     }
-    /* =========================
-       = Blog
-       ========================= */
+    /* Blog */
     .blog-access {
-      padding: 5rem 0;
       background-color: var(--primary);
       color: white;
       text-align: center;
     }
-    .blog-access h2 {
-      font-size: 1.8rem;
+    .blog-access h2,
+    .blog-access p {
       margin-bottom: 1rem;
     }
-    .blog-access p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-    /* =========================
-       = Footer
-       ========================= */
+    /* Footer */
     .footer-minimal {
-      padding: 2.5rem 0;
       text-align: center;
       font-size: 0.9rem;
       color: #777;
       background-color: var(--light);
       border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
     }
-    /* =========================
-       = WhatsApp
-       ========================= */
+    /* WhatsApp */
     .whatsapp-fab {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 1000;
-      display: block;
       animation: pulse 2s infinite;
-      transition: transform 0.3s ease;
-    }
-    .whatsapp-fab:hover {
-      transform: scale(1.1);
     }
     .whatsapp-fab img {
       width: 50px;
@@ -406,53 +420,284 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    /* =========================
-       = Responsive
-       ========================= */
+    /* Responsive */
     @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.5rem;
+      .hero-title { font-size: 2.5rem; }
+      .quick-links { flex-direction: column; align-items: center; }
+      .quick-link { width: 100%; max-width: 300px; }
+      .lead-magnet form { flex-direction: column; }
+      .lead-magnet input { width: 100%; }
+    }
+    /* =========================
+   = Tech Panel - Fondo Oscuro con Estilo Tecnológico
+   ========================= */
+    .tech-panel-section {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .tech-panel-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(0, 201, 177, 0.08) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .tech-panel-title {
+      font-size: 1.8rem;
+      color: var(--secondary);
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(0, 201, 177, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+    .tech-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .tech-link {
+      display: flex;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 16px;
+      padding: 1.2rem;
+      text-decoration: none;
+      color: white;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .tech-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary), #3b82f6);
+      -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .tech-link:hover::before {
+      opacity: 1;
+    }
+    .tech-link:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 201, 177, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+    .tech-link-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--primary), #009487);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+      transition: all 0.3s ease;
+    }
+    .tech-link-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: white;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    }
+    .tech-link:hover .tech-link-icon {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 201, 177, 0.4);
+    }
+    .tech-link-text {
+      line-height: 1.5;
+      text-align: left;
+    }
+    .tech-link-text strong {
+      font-size: 1.1rem;
+      color: white;
+      display: block;
+      font-weight: 600;
+    }
+    .tech-link-text small {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tech-panel-title {
+        font-size: 1.6rem;
       }
-      .hero-subtitle {
-        font-size: 1.1rem;
+      .tech-link {
+        padding: 1rem;
       }
-      .solution-img {
-        width: 100px;
-        height: 100px;
+      .tech-link-icon {
+        width: 46px;
+        height: 46px;
       }
-      blockquote {
-        font-size: 1.3rem;
+      .tech-link-icon svg {
+        width: 20px;
+        height: 20px;
       }
-      .btn-primary {
-        padding: 1.2rem 2.2rem;
-        font-size: 1.3rem;
+      .tech-link-text strong {
+        font-size: 1rem;
       }
-      .whatsapp-fab img {
-        width: 60px;
-      }
+    }
+    /* Lead Magnet Styling */
+    .lead-magnet-section {
+      padding: 3rem 0;
+      background-color: var(--light);
+      position: relative;
+      overflow: hidden;
+    }
+    .lead-magnet-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .lead-magnet-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
   </style>
 </head>
 <body>
-
-  <!-- 🧭 Header -->
-  <header class="landing-header">
-    <div class="container header-content">
-      <a href="/" class="logo">
-        <img src="https://coreltech-web.vercel.app/assets/img/logo.webp" alt="Coreltech IT Solutions" width="150">
-      </a>
-    </div>
-  </header>
-
-  <!-- 🎯 Hero -->
+  <!-- 🎯 Hero Principal (Único y fuerte) -->
   <section class="hero-landing">
     <div class="hero-content">
       <h1 class="hero-title">Cuando falla tu tecnología, <br>nosotros ya estamos trabajando.</h1>
       <p class="hero-subtitle">Soporte técnico integral en hardware, software y redes con respuesta en menos de 60 minutos. Garantizado.</p>
       <a href="#contacto" class="btn-primary">Solicitar Respuesta Rápida</a>
-      <a href="https://coreltech-web.vercel.app/" target="_blank" class="btn-secondary" style="margin-top: 1.2rem; display: inline-block;">
-        Conoce Todos Nuestros Servicios
-      </a>
+      <a href="https://coreltech-web.vercel.app/" target="_blank" class="btn-primary btn-secondary">Ver todos los servicios</a>
+    </div>
+  </section>
+
+  <!-- 🔧 Enlaces Tecnológicos - Modo "Tech Panel" -->
+  <section class="tech-panel-section">
+    <div class="container">
+      <h2 class="tech-panel-title">
+        Encuéntranos también en
+      </h2>
+      <div class="tech-links-grid">
+        <!-- Sitio Web -->
+        <a href="https://coreltech-web.vercel.app/" target="_blank" class="tech-link">
+          <div class="tech-link-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <div class="tech-link-text">
+            <strong>Sitio Web</strong>
+            <small>Accede a todos nuestros servicios</small>
+          </div>
+        </a>
+        <!-- Blog -->
+        <a href="https://coreltech-blog.vercel.app/" target="_blank" class="tech-link">
+          <div class="tech-link-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <line x1="10" y1="9" x2="8" y2="9"></line>
+            </svg>
+          </div>
+          <div class="tech-link-text">
+            <strong>Blog Técnico</strong>
+            <small>Consejos, tutoriales y novedades IT</small>
+          </div>
+        </a>
+        <!-- Instagram -->
+        <a href="https://instagram.com/coreltech" target="_blank" class="tech-link">
+          <div class="tech-link-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="tech-link-text">
+            <strong>Instagram</strong>
+            <small>Casos reales y contenido visual</small>
+          </div>
+        </a>
+        <!-- TikTok -->
+        <a href="https://tiktok.com/@coreltech" target="_blank" class="tech-link">
+          <div class="tech-link-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12a4 4 0 0 1 8 0v6.5a3.5 3.5 0 0 1-7 0V16a1 1 0 0 1 2 0v2.5a1.5 1.5 0 0 0 3 0V12a2 2 0 1 0-4 0v5.5a1.5 1.5 0 0 1-3 0V12a4 4 0 0 1 4-4z"></path>
+            </svg>
+          </div>
+          <div class="tech-link-text">
+            <strong>TikTok</strong>
+            <small>Consejos rápidos y detrás de escena</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📥 Lead Magnet: Guía Gratuita -->
+  <section class="lead-magnet-section">
+    <div class="container">
+      <div class="lead-magnet-card">
+        <h2 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 0.8rem; text-align: center;">
+          📥 Descarga Gratis: "5 Errores IT que Cuestan a las Empresas"
+        </h2>
+        <p style="color: #555; margin-bottom: 1.5rem; font-size: 1.1rem; text-align: center;">
+            Guía PDF con consejos prácticos para prevenir fallos técnicos, pérdidas de tiempo y dinero.
+        </p>
+        <form id="lead-form-magnet" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center;">
+          <input 
+            type="text" 
+            name="nombre" 
+            placeholder="Tu nombre" 
+            required 
+            style="flex: 1; min-width: 200px; padding: 0.9rem; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background: #f9fafb;">
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Tu email corporativo" 
+            required 
+            style="flex: 1; min-width: 200px; padding: 0.9rem; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background: #f9fafb;">
+          <button 
+            type="submit" 
+            style="padding: 1rem 2rem; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+            Obtener Guía Gratis
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -461,21 +706,21 @@
     <div class="container">
       <h2 class="section-title">No vendemos partes. Vendemos tranquilidad.</h2>
       <div class="solutions-grid">
-        <a href="https://coreltech-web.vercel.app/#hardware" target="_blank" class="solution-link">
+        <a href="https://coreltech-web.vercel.app/hardware.html" target="_blank" class="solution-link">
           <div class="solution-item">
             <img src="https://coreltech-web.vercel.app/assets/img/real-hardware.webp" alt="Reparación de hardware" class="solution-img">
             <h3>Hardware</h3>
             <p>Limpieza, reparación y mantenimiento de equipos. Recuperamos lo que otros dan por perdido.</p>
           </div>
         </a>
-        <a href="https://coreltech-web.vercel.app/#software" target="_blank" class="solution-link">
+        <a href="https://coreltech-web.vercel.app/software.html" target="_blank" class="solution-link">
           <div class="solution-item">
             <img src="https://coreltech-web.vercel.app/assets/img/real-software.webp" alt="Recuperación de software" class="solution-img">
             <h3>Software</h3>
             <p>Recuperación de datos, eliminación de malware, optimización de sistemas.</p>
           </div>
         </a>
-        <a href="https://coreltech-web.vercel.app/#redes" target="_blank" class="solution-link">
+        <a href="https://coreltech-web.vercel.app/redes.html" target="_blank" class="solution-link">
           <div class="solution-item">
             <img src="https://coreltech-web.vercel.app/assets/img/real-network.webp" alt="Instalación de red" class="solution-img">
             <h3>Redes</h3>
@@ -501,28 +746,28 @@
     </div>
   </section>
 
-  <!-- ✅ Sección de Confianza -->
+  <!-- ✅ Confianza -->
   <section class="trust-section">
     <div class="container">
       <h3>Tranquilidad respaldada por resultados</h3>
       <div class="trust-stats">
         <div class="trust-item">
-          <span style="color: #0066CC;">150+</span>
+          <span>150+</span>
           <small>Empresas Atendidas</small>
         </div>
         <div class="trust-item">
-          <span style="color: #00C9B1;">98%</span>
+          <span>98%</span>
           <small>Satisfacción Garantizada</small>
         </div>
         <div class="trust-item">
-          <span style="color: #0066CC;">60 min</span>
+          <span>60 min</span>
           <small>Tiempo Promedio de Respuesta</small>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 📝 Formulario de contacto -->
+  <!-- 📝 Formulario -->
   <section id="contacto" class="contact-section">
     <div class="container">
       <form id="contact-form" class="contact-form">
@@ -537,7 +782,7 @@
     </div>
   </section>
 
-  <!-- 📚 Acceso al blog -->
+  <!-- 📚 Blog -->
   <section class="blog-access">
     <div class="container">
       <h2>Artículos Técnicos Gratis</h2>
@@ -557,14 +802,13 @@
 
   <!-- 📞 WhatsApp -->
   <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-fab">
-    <img src="https://coreltech-web.vercel.app/assets/img/whatsapp-icon.webp" alt="WhatsApp">
+    <img src="https://coreltech-it.vercel.app/assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
 
-  <!-- ✅ Firebase SDKs -->
+  <!-- ✅ Firebase + Telegram (Ambos formularios) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script>
-    // Configuración de Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyDD7Wp_TpfHKHfdDqaCLqWbjX5E3WZllGA",
       authDomain: "coreltech-it.firebaseapp.com",
@@ -575,9 +819,80 @@
     };
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
+    const BOT_TOKEN = '8415287831:AAGNh1DUsu4Dgghc6UBSzq9do4LFvyKouH8';
+    const CHAT_ID = '7523354646';
 
-    // Manejo del formulario
-    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    async function enviarTelegram(mensaje) {
+      try {
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: mensaje, parse_mode: 'Markdown' })
+        });
+      } catch (error) {
+        console.error('Error al enviar a Telegram:', error);
+      }
+    }
+
+    // Formulario Lead Magnet - Corregido
+    document.getElementById('lead-form-magnet')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn = form.querySelector('button');
+      const originalText = btn.textContent;
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      const nombre = form.nombre.value.trim();
+      const email = form.email.value.trim();
+      const pdfUrl = 'https://coreltech-it.vercel.app/assets/docs/guia-5-errores-it-coreltech.pdf';
+
+      try {
+        // 1. Abrir PDF inmediatamente (evita bloqueo de popup)
+        const pdfWindow = window.open(pdfUrl, '_blank');
+        if (!pdfWindow) {
+          alert('⚠️ Tu navegador bloqueó la descarga. Haz clic en el enlace que aparecerá.');
+        }
+
+        // 2. Guardar en Firebase
+        await db.collection('contactos').add({
+          nombre,
+          email,
+          origen: 'lead-magnet-guia',
+          fecha: new Date()
+        });
+
+        // 3. Enviar a Telegram
+        const mensaje = `
+📥 *Nuevo Lead - Guía Descargada*
+👤 *Nombre:* ${nombre}
+📧 *Email:* ${email}
+#LeadMagnet #SoporteIT
+        `.trim();
+        await enviarTelegram(mensaje);
+
+        // 4. Confirmación
+        alert(`✅ ¡Gracias ${nombre}! Ya abrimos tu guía en una nueva pestaña.`);
+        
+        // Opcional: abrir WhatsApp
+        setTimeout(() => {
+          window.open('https://wa.me/584145828186', '_blank');
+        }, 1500);
+
+        form.reset();
+
+      } catch (error) {
+        console.error("Error al guardar:", error);
+        alert('✅ ¡Gracias! Tu guía está lista. Haz clic aquí para descargarla.');
+        window.open(pdfUrl, '_blank');
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    });
+
+    // Formulario Principal - Sin cambios
+    document.getElementById('contact-form')?.addEventListener('submit', async function(e) {
       e.preventDefault();
       const form = this;
       const btn = form.querySelector('button');
@@ -590,40 +905,25 @@
         email: form.email.value.trim(),
         telefono: form.telefono.value.trim(),
         mensaje: form.mensaje.value.trim(),
-        fecha: new Date() // ✅ Guardado como Timestamp
+        fecha: new Date()
       };
 
       try {
         await db.collection('contactos').add(formData);
-
-        const BOT_TOKEN = '8415287831:AAGNh1DUsu4Dgghc6UBSzq9do4LFvyKouH8';
-        const CHAT_ID = '7523354646';
         const mensaje = `
-🔔 *Nuevo Lead en Coreltech Landing*
+🔔 *Nuevo Lead - Formulario Landing*
 👤 *Nombre:* ${formData.nombre}
 📧 *Email:* ${formData.email}
 📞 *Teléfono:* ${formData.telefono}
 📝 *Mensaje:* ${formData.mensaje}
-📅 *Fecha:* ${new Date().toLocaleString('es-VE')}
 #NuevoLead #SoporteIT
         `.trim();
+        await enviarTelegram(mensaje);
 
-        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: mensaje,
-            parse_mode: 'Markdown'
-          })
-        });
-
-        alert('✅ ¡Listo! Te contactaremos en menos de 24 horas.\n¿Urgente? Escríbenos por WhatsApp.');
+        alert('✅ ¡Listo! Te contactaremos en menos de 24 horas. ¿Urgente? Escríbenos por WhatsApp.');
         window.open('https://wa.me/584145828186', '_blank');
         form.reset();
-
       } catch (error) {
-        console.error("Error:", error);
         alert('❌ Hubo un error. Por favor, escríbenos directamente por WhatsApp.');
       } finally {
         btn.textContent = originalText;
@@ -631,6 +931,5 @@
       }
     });
   </script>
-
 </body>
 </html>
