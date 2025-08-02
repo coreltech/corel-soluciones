@@ -744,24 +744,39 @@
           document.getElementById('checklist-count').textContent = data.checklist || 0;
           document.getElementById('plantilla-count').textContent = data.plantilla || 0;
           document.getElementById('total-downloads').textContent = data.total || 0;
+        } else {
+          // Si no existe, inicializa en 0
+          document.getElementById('guia-count').textContent = 0;
+          document.getElementById('checklist-count').textContent = 0;
+          document.getElementById('plantilla-count').textContent = 0;
+          document.getElementById('total-downloads').textContent = 0;
         }
       } catch (error) {
         console.error("Error al cargar contadores:", error);
+        document.getElementById('guia-count').textContent = 0;
+        document.getElementById('checklist-count').textContent = 0;
+        document.getElementById('plantilla-count').textContent = 0;
+        document.getElementById('total-downloads').textContent = 0;
       }
     }
 
+    // ✅ Incrementar contador (crea el documento si no existe)
     function incrementarContador(campo) {
-      db.collection('stats').doc('downloads').get().then(doc => {
-        if (doc.exists) {
-          const data = doc.data();
-          const nuevoValor = (data[campo] || 0) + 1;
-          const total = (data.total || 0) + 1;
-          db.collection('stats').doc('downloads').update({
-            [campo]: nuevoValor,
-            total: total
-          });
-        }
-      }).catch(console.error);
+      const docRef = db.collection('stats').doc('downloads');
+      docRef.get().then(docSnapshot => {
+        const data = docSnapshot.exists ? docSnapshot.data() : {};
+        const nuevoValor = (data[campo] || 0) + 1;
+        const total = (data.total || 0) + 1;
+        // Usa set con merge: true para crear o actualizar
+        docRef.set({
+          [campo]: nuevoValor,
+          total: total
+        }, { merge: true }).catch(error => {
+          console.error("Error al actualizar contador:", error);
+        });
+      }).catch(error => {
+        console.error("Error al leer el documento:", error);
+      });
     }
 
     // Cargar contadores al inicio
@@ -778,7 +793,7 @@
 
       const nombre = form.nombre.value.trim();
       const email = form.email.value.trim();
-      const pdfUrl = 'https://coreltech-it.vercel.app/docs/guia-5-errores-it-coreltech.pdf';
+      const pdfUrl = 'https://coreltech-it.vercel.app/docs/guia-5-errores-it.pdf';
 
       try {
         const pdfWindow = window.open(pdfUrl, '_blank');
@@ -864,7 +879,7 @@
 
       const nombre = form.nombre.value.trim();
       const email = form.email.value.trim();
-      const pdfUrl = 'https://coreltech-it.vercel.app/docs/evaluacion-de-seguridad-digital.pdf';
+      const pdfUrl = 'https://coreltech-it.vercel.app/docs/plantilla-evaluacion-seguridad.pdf';
 
       try {
         const pdfWindow = window.open(pdfUrl, '_blank');
