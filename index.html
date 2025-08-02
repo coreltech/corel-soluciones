@@ -247,7 +247,7 @@
       color: #94a3b8;
     }
     /* =========================
-       = Lead Magnet
+       = Lead Magnets
        ========================= */
     .lead-magnets-section {
       padding: 4rem 0;
@@ -703,7 +703,7 @@
     <img src="https://coreltech-it.vercel.app/assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
 
-  <!-- ✅ Firebase + Telegram + Contador -->
+  <!-- ✅ Firebase + Telegram + Contador (UN SOLO BLOQUE) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script>
@@ -778,7 +778,7 @@
 
       const nombre = form.nombre.value.trim();
       const email = form.email.value.trim();
-      const pdfUrl = 'https://coreltech-it.vercel.app/assets/docs/guia-5-errores-it-coreltech.pdf';
+      const pdfUrl = 'https://coreltech-it.vercel.app/docs/guia-5-errores-it-coreltech.pdf';
 
       try {
         const pdfWindow = window.open(pdfUrl, '_blank');
@@ -797,7 +797,7 @@
         `.trim();
         await enviarTelegram(mensaje);
 
-        alert(`✅ ¡Gracias ${nombre}! Tu recurso se está descargando. Si necesitas ayuda, escríbenos por WhatsApp.`);
+        alert(`✅ ¡Gracias ${nombre}! Tu guía se está descargando.`);
         form.reset();
 
       } catch (error) {
@@ -821,7 +821,7 @@
 
       const nombre = form.nombre.value.trim();
       const email = form.email.value.trim();
-      const pdfUrl = 'https://coreltech-it.vercel.app/assets/docs/checklist-mantenimiento-it.pdf';
+      const pdfUrl = 'https://coreltech-it.vercel.app/docs/checklist-mantenimiento-it.pdf';
 
       try {
         const pdfWindow = window.open(pdfUrl, '_blank');
@@ -840,7 +840,7 @@
         `.trim();
         await enviarTelegram(mensaje);
 
-        alert(`✅ ¡Gracias ${nombre}! Tu recurso se está descargando. Si necesitas ayuda, escríbenos por WhatsApp.`);
+        alert(`✅ ¡Gracias ${nombre}! Tu checklist se está descargando.`);
         form.reset();
 
       } catch (error) {
@@ -864,7 +864,7 @@
 
       const nombre = form.nombre.value.trim();
       const email = form.email.value.trim();
-      const pdfUrl = 'https://coreltech-it.vercel.app/assets/docs/evaluacion-de-seguridad-digital.pdf';
+      const pdfUrl = 'https://coreltech-it.vercel.app/docs/evaluacion-de-seguridad-digital.pdf';
 
       try {
         const pdfWindow = window.open(pdfUrl, '_blank');
@@ -883,7 +883,7 @@
         `.trim();
         await enviarTelegram(mensaje);
 
-        alert(`✅ ¡Gracias ${nombre}! Tu recurso se está descargando. Si necesitas ayuda, escríbenos por WhatsApp.`);
+        alert(`✅ ¡Gracias ${nombre}! Tu plantilla se está descargando.`);
         form.reset();
 
       } catch (error) {
@@ -925,7 +925,7 @@
         `.trim();
         await enviarTelegram(mensaje);
 
-        alert('✅ ¡Listo! Te contactaremos en menos de 24 horas. ¿Urgente? Escríbenos por WhatsApp.');
+        alert('✅ ¡Listo! Te contactaremos en menos de 24 horas.');
         form.reset();
       } catch (error) {
         alert('❌ Hubo un error. Por favor, escríbenos directamente por WhatsApp.');
